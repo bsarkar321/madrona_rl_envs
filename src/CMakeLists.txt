@@ -1,3 +1,4 @@
 add_subdirectory(hanabi_env)
 add_subdirectory(cartpole_env)
 add_subdirectory(balance_beam_env)
+add_subdirectory(simple_spread_env)
