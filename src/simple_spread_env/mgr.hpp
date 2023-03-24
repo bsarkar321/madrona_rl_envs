@@ -27,9 +27,9 @@ public:
 
     MADRONA_IMPORT madrona::py::Tensor resetTensor() const; // Bool or Int32
     MADRONA_IMPORT madrona::py::Tensor actionTensor() const; // Bool or Int32
-    MADRONA_IMPORT madrona::py::Tensor stateTensor() const; // Vec4 Float32
+    MADRONA_IMPORT madrona::py::Tensor observationTensor() const; // Vec4 Float32
     MADRONA_IMPORT madrona::py::Tensor rewardTensor() const; // Float32
-
+    MADRONA_IMPORT madrona::py::Tensor agentIDTensor() const; // Bool or Int32
     MADRONA_IMPORT madrona::py::Tensor worldIDTensor() const; // Float32
 
 

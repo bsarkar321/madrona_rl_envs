@@ -39,8 +39,9 @@ NB_MODULE(madrona_simple_spread_example_python, m) {
         .def("step", &Manager::step)
         .def("reset_tensor", &Manager::resetTensor)
         .def("action_tensor", &Manager::actionTensor)
-        .def("observation_tensor", &Manager::stateTensor)
+        .def("observation_tensor", &Manager::observationTensor)
         .def("reward_tensor", &Manager::rewardTensor)
+        .def("agent_id_tensor", &Manager::agentIDTensor)
         .def("world_id_tensor", &Manager::worldIDTensor)
     ;
 }

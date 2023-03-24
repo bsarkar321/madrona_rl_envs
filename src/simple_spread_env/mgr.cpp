@@ -155,7 +155,7 @@ Manager::Impl * Manager::Impl::init(const Config &cfg)
         };
     }
 
-    uint32_t num_exported_buffers = 5;
+    uint32_t num_exported_buffers = 6;
 
 
     if (cfg.execMode == ExecMode::CPU) {
@@ -186,31 +186,37 @@ MADRONA_EXPORT void Manager::step()
 MADRONA_EXPORT Tensor Manager::resetTensor() const
 {
     return impl_->exportTensor(0, Tensor::ElementType::Int32,
-                               {impl_->cfg.numWorlds, 1});
+                               {impl_->cfg.numWorlds, NUM_AGENTS});
 }
 
 MADRONA_EXPORT Tensor Manager::actionTensor() const
 {
     return impl_->exportTensor(1, Tensor::ElementType::Int32,
-                               {impl_->cfg.numWorlds, 1, 1});
+                               {impl_->cfg.numWorlds, NUM_AGENTS, 2});
 }
 
-MADRONA_EXPORT Tensor Manager::stateTensor() const
+MADRONA_EXPORT Tensor Manager::observationTensor() const
 {
     return impl_->exportTensor(2, Tensor::ElementType::Float32,
-                               {impl_->cfg.numWorlds, 1, 4});
+                               {impl_->cfg.numWorlds, NUM_AGENTS, OBS_SIZE});
 }
 
 MADRONA_EXPORT Tensor Manager::rewardTensor() const
 {
     return impl_->exportTensor(3, Tensor::ElementType::Float32,
-                               {impl_->cfg.numWorlds, 1, 1});
+                               {impl_->cfg.numWorlds, NUM_AGENTS});
+}
+
+MADRONA_EXPORT Tensor Manager::agentIDTensor() const
+{
+    return impl_->exportTensor(4, Tensor::ElementType::Int32,
+                               {impl_->cfg.numWorlds, NUM_AGENTS});
 }
 
 MADRONA_EXPORT Tensor Manager::worldIDTensor() const
 {
-    return impl_->exportTensor(4, Tensor::ElementType::Int32,
-                               {impl_->cfg.numWorlds, 1, 1});
+    return impl_->exportTensor(5, Tensor::ElementType::Int32,
+                               {impl_->cfg.numWorlds, NUM_AGENTS});
 }
 
 }

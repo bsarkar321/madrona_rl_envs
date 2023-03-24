@@ -29,14 +29,11 @@ namespace SimpleSpread {
 
     // Export tensors for pytorch
     registry.exportSingleton<WorldReset>(0);
-    registry.exportSingleton<WorldState>(1);
-    registry.exportColumn<Agent, Action>(2);
-    registry.exportColumn<Agent, Observation>(3);
-    registry.exportColumn<Agent, Kinematics>(4);
-    registry.exportColumn<Agent, Communication>(5);
-    registry.exportColumn<Agent, Reward>(6);
-    registry.exportColumn<Agent, AgentID>(7);
-    registry.exportColumn<Agent, WorldID>(8);
+    registry.exportColumn<Agent, Action>(1);
+    registry.exportColumn<Agent, Observation>(2);
+    registry.exportColumn<Agent, Reward>(3);
+    registry.exportColumn<Agent, AgentID>(4);
+    registry.exportColumn<Agent, WorldID>(5);
 }
 
 inline void updateObs(Engine &ctx, WorldState &state)
