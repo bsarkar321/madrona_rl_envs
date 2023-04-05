@@ -36,39 +36,38 @@ namespace SimpleSpread {
     registry.exportColumn<Agent, WorldID>(5);
 }
 
-inline void updateObs(Engine &ctx, WorldState &state)
+inline void updateObs(Engine &ctx, Observation &obs, Kinematics &k, AgentID &id)
 {
-    for (int a = 0; a < NUM_AGENTS; a++) {
-        Entity agent = ctx.data().agents[a];
-        Observation &obs = ctx.getUnsafe<Observation>(agent);
-        Kinematics k = ctx.getUnsafe<Kinematics>(agent);
+    WorldState &state = ctx.getSingleton<WorldState>();
 
-        int i = 0;
-        obs.statevec[i++] = k.pos.x;
-        obs.statevec[i++] = k.pos.y;
-        obs.statevec[i++] = k.vel.x;
-        obs.statevec[i++] = k.vel.y;
+    int i = 0;
+    obs.statevec[i++] = k.pos.x;
+    obs.statevec[i++] = k.pos.y;
+    obs.statevec[i++] = k.vel.x;
+    obs.statevec[i++] = k.vel.y;
 
-        for (int l = 0; l < NUM_LANDMARKS; l++) {
-            obs.statevec[i++] = state.landmark_pos[l].x;
-            obs.statevec[i++] = state.landmark_pos[l].y;
-        }
+    for (int l = 0; l < NUM_LANDMARKS; l++) {
+        obs.statevec[i++] = state.landmark_pos[l].x;
+        obs.statevec[i++] = state.landmark_pos[l].y;
+    }
 
-        for (int b = 0; b < NUM_AGENTS; b++) {
-            if (a == b) continue;
-            Entity agentB = ctx.data().agents[b];
-            Kinematics kB = ctx.getUnsafe<Kinematics>(agentB);
-            Communication commB = ctx.getUnsafe<Communication>(agentB);
+    for (int b = 0; b < NUM_AGENTS; b++) {
+        if (id.id == b) continue;
+        Entity agentB = ctx.data().agents[b];
+        Kinematics kB = ctx.getUnsafe<Kinematics>(agentB);
+        Communication commB = ctx.getUnsafe<Communication>(agentB);
 
-            obs.statevec[i++] = kB.pos.x;
-            obs.statevec[i++] = kB.pos.y;
-            obs.statevec[i++] = (float) commB.comm[0];
-            obs.statevec[i++] = (float) commB.comm[1];
-        }
+        obs.statevec[i++] = kB.pos.x;
+        obs.statevec[i++] = kB.pos.y;
+        obs.statevec[i++] = (float) commB.comm[0];
+        obs.statevec[i++] = (float) commB.comm[1];
     }
 }
 
-
+inline void observationSystem(Engine &ctx, Observation &obs, Kinematics &k, AgentID &id)
+{
+    updateObs(ctx, obs, k, id);
+}
 
 inline std::tuple<Vector2, Vector2> getCollisionForce(Vector2 aPos, float aSize, Vector2 bPos, float bSize)
 {
@@ -108,7 +107,13 @@ static void resetWorld(Engine &ctx)
         state.landmark_vel[landmarkID] = {0, 0};
     }
 
-    updateObs(ctx, state);
+    for (int agentID = 0; agentID < NUM_AGENTS; agentID++) {
+        Entity agent = ctx.data().agents[agentID];
+        Observation &obs = ctx.getUnsafe<Observation>(agent);
+        Kinematics &k = ctx.getUnsafe<Kinematics>(agent);
+        AgentID &id_obj = ctx.getUnsafe<AgentID>(agent);
+        updateObs(ctx, obs, k, id_obj);
+    }
 }
 
 inline void actionSystem(Engine &ctx, WorldState state)
@@ -205,11 +210,6 @@ inline void timeSystem(Engine &ctx, WorldState &state)
     state.time -= 1;
 }
 
-inline void observationSystem(Engine &ctx, WorldState &state)
-{
-    updateObs(ctx, state);
-}
-
 inline void checkDone(Engine &ctx, WorldReset &reset)
 {
     reset.resetNow = false;
@@ -276,7 +276,7 @@ inline void checkDone(Engine &ctx, WorldReset &reset)
 
     auto action_sys = builder.addToGraph<ParallelForNode<Engine, actionSystem, WorldState>>({});
     auto time_sys = builder.addToGraph<ParallelForNode<Engine, timeSystem, WorldState>>({action_sys});
-    auto update_obs = builder.addToGraph<ParallelForNode<Engine, observationSystem, WorldState>>({time_sys});
+    auto update_obs = builder.addToGraph<ParallelForNode<Engine, observationSystem, Observation, Kinematics, AgentID>>({time_sys});
     auto terminate_sys = builder.addToGraph<ParallelForNode<Engine, checkDone, WorldReset>>({update_obs});
 
     (void)terminate_sys;
