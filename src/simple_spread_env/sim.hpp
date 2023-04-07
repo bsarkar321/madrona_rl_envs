@@ -40,11 +40,13 @@ namespace SimpleSpread {
 
     struct WorldState {
         int32_t time;
-        madrona::math::Vector2 landmark_pos[NUM_LANDMARKS];
-        madrona::math::Vector2 landmark_vel[NUM_LANDMARKS];
+    };
 
-        madrona::math::Vector2 action_forces[NUM_AGENTS];
-        madrona::math::Vector2 total_agent_forces[NUM_AGENTS];
+    // shared properties
+
+    struct Kinematics {
+        madrona::math::Vector2 pos;
+        madrona::math::Vector2 vel;
     };
 
     // per-agent
@@ -62,11 +64,6 @@ namespace SimpleSpread {
         float statevec[OBS_SIZE];
     };
 
-    struct Kinematics {
-        madrona::math::Vector2 pos;
-        madrona::math::Vector2 vel;
-    };
-
     struct Communication {
         uint32_t comm[DIM_C];
     };
@@ -76,6 +73,14 @@ namespace SimpleSpread {
     };
 
     struct Agent : public madrona::Archetype<Action, Observation, Kinematics, Communication, Reward, AgentID> {};
+
+    // per-landmark
+
+    struct LandmarkID {
+        int32_t id;
+    };
+
+    struct Landmark : public madrona::Archetype<Kinematics, LandmarkID> {};
 
     struct Config {};
 
@@ -90,6 +95,10 @@ namespace SimpleSpread {
         RNG rng;
 
         madrona::Entity *agents;
+        madrona::Entity *landmarks;
+
+        madrona::math::Vector2 total_agent_forces[NUM_AGENTS];
+        madrona::math::Vector2 total_landmark_forces[NUM_AGENTS];
     };
 
     class Engine : public ::madrona::CustomContext<Engine, Sim> {

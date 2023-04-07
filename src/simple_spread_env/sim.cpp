@@ -26,6 +26,7 @@ namespace SimpleSpread {
     registry.registerComponent<AgentID>();
 
     registry.registerFixedSizeArchetype<Agent>(NUM_AGENTS);
+    registry.registerFixedSizeArchetype<Landmark>(NUM_LANDMARKS);
 
     // Export tensors for pytorch
     registry.exportSingleton<WorldReset>(0);
@@ -47,8 +48,10 @@ inline void updateObs(Engine &ctx, Observation &obs, Kinematics &k, AgentID &id)
     obs.statevec[i++] = k.vel.y;
 
     for (int l = 0; l < NUM_LANDMARKS; l++) {
-        obs.statevec[i++] = state.landmark_pos[l].x;
-        obs.statevec[i++] = state.landmark_pos[l].y;
+        Entity landmark = ctx.data().landmarks[l];
+        Kinematics kL = ctx.getUnsafe<Kinematics>(landmark);
+        obs.statevec[i++] = kL.pos.x;
+        obs.statevec[i++] = kL.pos.y;
     }
 
     for (int b = 0; b < NUM_AGENTS; b++) {
@@ -103,8 +106,10 @@ static void resetWorld(Engine &ctx)
     }
 
     for (int landmarkID = 0; landmarkID < NUM_LANDMARKS; landmarkID++) {
-        state.landmark_pos[landmarkID] = {(float) ctx.data().rng.rand() * 2 - 1, (float) ctx.data().rng.rand() * 2 - 1};
-        state.landmark_vel[landmarkID] = {0, 0};
+        Entity landmark = ctx.data().landmarks[landmarkID];
+        Kinematics &kL = ctx.getUnsafe<Kinematics>(landmark);
+        kL.pos = {(float) ctx.data().rng.rand() * 2 - 1, (float) ctx.data().rng.rand() * 2 - 1};
+        kL.vel = {0, 0};
     }
 
     for (int agentID = 0; agentID < NUM_AGENTS; agentID++) {
@@ -133,27 +138,65 @@ inline void actionSystem(Engine &ctx, AgentID &id, Action &action, Communication
             break;
     }
 
-    WorldState &state = ctx.getSingleton<WorldState>();
-    state.total_agent_forces[id.id] = actionForce;
+    ctx.data().total_agent_forces[id.id] = actionForce;
 
     for (uint32_t &i : comm.comm) i = 0;
     comm.comm[action.comm] = 1;
 }
 
 inline void agentAgentInteractionSystem(Engine &ctx, AgentID &id, Kinematics &k) {
-    WorldState &state = ctx.getSingleton<WorldState>();
     for (int b = 0; b < NUM_AGENTS; b++) {
         if (b == id.id) continue;
         Entity agentB = ctx.data().agents[b];
         Kinematics kinematicsB = ctx.getUnsafe<Kinematics>(agentB);
         auto collisionForces = getCollisionForce(k.pos, AGENT_SIZE, kinematicsB.pos, AGENT_SIZE);
-        state.total_agent_forces[id.id] += std::get<0>(collisionForces);
+        ctx.data().total_agent_forces[id.id] += std::get<0>(collisionForces);
     }
 }
 
-inline void landmarkLandmarkInteractionSystem(Engine &ctx, )
+inline void landmarkLandmarkInteractionSystem(Engine &ctx, LandmarkID &id, Kinematics &k) {
+    for (int b = 0; b < NUM_LANDMARKS; b++) {
+        if (b == id.id) continue;
+        Entity landmarkB = ctx.data().landmarks[b];
+        Kinematics kinematicsB = ctx.getUnsafe<Kinematics>(landmarkB);
+        auto collisionForces = getCollisionForce(k.pos, LANDMARK_SIZE, kinematicsB.pos, LANDMARK_SIZE);
+        ctx.data().total_landmark_forces[id.id] += std::get<0>(collisionForces);
+    }
+}
 
-inline void actionSystem(Engine &ctx, WorldState state)
+inline void agentLandmarkInteractionSystem(Engine &ctx, AgentID &id, Kinematics &k) {
+    for (int b = 0; b < NUM_LANDMARKS; b++) {
+        if (b == id.id) continue;
+        Entity agentB = ctx.data().landmarks[b];
+        Kinematics kinematicsB = ctx.getUnsafe<Kinematics>(agentB);
+        auto collisionForces = getCollisionForce(k.pos, AGENT_SIZE, kinematicsB.pos, AGENT_SIZE);
+        ctx.data().total_agent_forces[id.id] += std::get<0>(collisionForces);
+    }
+}
+
+inline void landmarkAgentInteractionSystem(Engine &ctx, LandmarkID &id, Kinematics &k) {
+    for (int b = 0; b < NUM_AGENTS; b++) {
+        if (b == id.id) continue;
+        Entity agentB = ctx.data().agents[b];
+        Kinematics kinematicsB = ctx.getUnsafe<Kinematics>(agentB);
+        auto collisionForces = getCollisionForce(k.pos, AGENT_SIZE, kinematicsB.pos, AGENT_SIZE);
+        ctx.data().total_agent_forces[id.id] += std::get<0>(collisionForces);
+    }
+}
+
+inline void applyAgentForcesSystem(Engine &ctx, AgentID &id, Kinematics &k) {
+    k.vel = k.vel * (1 - VEL_DAMPING);
+    k.vel += ctx.data().total_agent_forces[id.id] / MASS * DT;
+    k.pos += k.vel * DT;
+}
+
+inline void applyLandmarkForcesSystem(Engine &ctx, LandmarkID &id, Kinematics &k) {
+    k.vel = k.vel * (1 - VEL_DAMPING);
+    k.vel += ctx.data().total_agent_forces[id.id] / MASS * DT;
+    k.pos += k.vel * DT;
+}
+
+/*inline void actionSystem(Engine &ctx, WorldState state)
 {
     Vector2 actionForces[NUM_AGENTS];
 
@@ -239,7 +282,7 @@ inline void actionSystem(Engine &ctx, WorldState state)
         vel += totalLandmarkForces[l] / MASS * DT;
         state.landmark_pos[l] += vel * DT;
     }
-}
+}*/
 
 inline void timeSystem(Engine &ctx, WorldState &state)
 {
@@ -329,15 +372,22 @@ Sim::Sim(Engine &ctx, const Config& cfg, const WorldInit &init)
     // Make a buffer that will last the duration of simulation for storing
     // agent entity IDs
     agents = (Entity *)rawAlloc(NUM_AGENTS * sizeof(Entity));
+    landmarks = (Entity *)rawAlloc(NUM_LANDMARKS * sizeof(Entity));
 
     for (int i = 0; i < NUM_AGENTS; i++) {
         agents[i] = ctx.makeEntityNow<Agent>();
         ctx.getUnsafe<AgentID>(agents[i]).id = i;
     }
 
+    for (int i = 0; i < NUM_LANDMARKS; i++) {
+        landmarks[i] = ctx.makeEntityNow<Landmark>();
+        ctx.getUnsafe<LandmarkID>(landmarks[i]).id = i;
+    }
+
     // Initial reset
     resetWorld(ctx);
     ctx.getSingleton<WorldReset>().resetNow = false;
+    ctx.getSingleton<WorldState>().time = EPISODE_LENGTH;
 }
 
     MADRONA_BUILD_MWGPU_ENTRY(Engine, Sim, Config, WorldInit);
