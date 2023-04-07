@@ -116,10 +116,49 @@ static void resetWorld(Engine &ctx)
     }
 }
 
+inline void actionSystem(Engine &ctx, AgentID &id, Action &action, Communication &comm) {
+    Vector2 actionForce = {0, 0};
+    switch (action.choice) {
+        case 0:
+            actionForce.x = -1.0f;
+            break;
+        case 1:
+            actionForce.x = 1.0f;
+            break;
+        case 2:
+            actionForce.y = -1.0f;
+            break;
+        case 3:
+            actionForce.y = 1.0f;
+            break;
+    }
+
+    WorldState &state = ctx.getSingleton<WorldState>();
+    state.total_agent_forces[id.id] = actionForce;
+
+    for (uint32_t &i : comm.comm) i = 0;
+    comm.comm[action.comm] = 1;
+}
+
+inline void agentAgentInteractionSystem(Engine &ctx, AgentID &id, Kinematics &k) {
+    WorldState &state = ctx.getSingleton<WorldState>();
+    for (int b = 0; b < NUM_AGENTS; b++) {
+        if (b == id.id) continue;
+        Entity agentB = ctx.data().agents[b];
+        Kinematics kinematicsB = ctx.getUnsafe<Kinematics>(agentB);
+        auto collisionForces = getCollisionForce(k.pos, AGENT_SIZE, kinematicsB.pos, AGENT_SIZE);
+        state.total_agent_forces[id.id] += std::get<0>(collisionForces);
+    }
+}
+
+inline void landmarkLandmarkInteractionSystem(Engine &ctx, )
+
 inline void actionSystem(Engine &ctx, WorldState state)
 {
     Vector2 actionForces[NUM_AGENTS];
 
+    // apply_action_force
+    // TODO: add noise
     for (int id = 0; id < NUM_AGENTS; id++) {
         Entity agent = ctx.data().agents[id];
         Action action = ctx.getUnsafe<Action>(agent);
@@ -145,9 +184,6 @@ inline void actionSystem(Engine &ctx, WorldState state)
         comm.comm[action.comm] = 1;
     }
 
-    // apply_action_force
-    // TODO: add noise
-
     // apply_environment_force
     Vector2 totalAgentForces[NUM_AGENTS];
     Vector2 totalLandmarkForces[NUM_LANDMARKS];
@@ -169,8 +205,8 @@ inline void actionSystem(Engine &ctx, WorldState state)
     for (int a = 0; a < NUM_LANDMARKS; a++) {
         for (int b = a + 1; b < NUM_LANDMARKS; b++) {
             auto collisionForces = getCollisionForce(state.landmark_pos[a], LANDMARK_SIZE, state.landmark_pos[b], LANDMARK_SIZE);
-            totalLandmarkForces[a] = std::get<0>(collisionForces);
-            totalLandmarkForces[b] = std::get<1>(collisionForces);
+            totalLandmarkForces[a] += std::get<0>(collisionForces);
+            totalLandmarkForces[b] += std::get<1>(collisionForces);
         }
     }
 

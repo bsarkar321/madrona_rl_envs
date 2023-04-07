@@ -42,6 +42,9 @@ namespace SimpleSpread {
         int32_t time;
         madrona::math::Vector2 landmark_pos[NUM_LANDMARKS];
         madrona::math::Vector2 landmark_vel[NUM_LANDMARKS];
+
+        madrona::math::Vector2 action_forces[NUM_AGENTS];
+        madrona::math::Vector2 total_agent_forces[NUM_AGENTS];
     };
 
     // per-agent
