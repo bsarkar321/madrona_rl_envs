@@ -23,7 +23,7 @@ namespace SimpleSpread {
     registry.registerComponent<Kinematics>();
     registry.registerComponent<Communication>();
     registry.registerComponent<Reward>();
-    registry.registerComponent<AgentID>();
+    registry.registerComponent<ObjectID>();
 
     registry.registerFixedSizeArchetype<Agent>(NUM_AGENTS);
     registry.registerFixedSizeArchetype<Landmark>(NUM_LANDMARKS);
@@ -33,11 +33,11 @@ namespace SimpleSpread {
     registry.exportColumn<Agent, Action>(1);
     registry.exportColumn<Agent, Observation>(2);
     registry.exportColumn<Agent, Reward>(3);
-    registry.exportColumn<Agent, AgentID>(4);
+    registry.exportColumn<Agent, ObjectID>(4);
     registry.exportColumn<Agent, WorldID>(5);
 }
 
-inline void updateObs(Engine &ctx, Observation &obs, Kinematics &k, AgentID &id)
+inline void observationSystem(Engine &ctx, Observation &obs, Kinematics &k, ObjectID &id)
 {
     WorldState &state = ctx.getSingleton<WorldState>();
 
@@ -67,11 +67,6 @@ inline void updateObs(Engine &ctx, Observation &obs, Kinematics &k, AgentID &id)
     }
 }
 
-inline void observationSystem(Engine &ctx, Observation &obs, Kinematics &k, AgentID &id)
-{
-    updateObs(ctx, obs, k, id);
-}
-
 inline std::tuple<Vector2, Vector2> getCollisionForce(Vector2 aPos, float aSize, Vector2 bPos, float bSize)
 {
     Vector2 deltaPos = aPos - bPos;
@@ -99,6 +94,7 @@ static void resetWorld(Engine &ctx)
         Entity agent = ctx.data().agents[agentID];
 
         ctx.getUnsafe<Kinematics>(agent) = {
+                AGENT_SIZE,
                 {(float) ctx.data().rng.rand() * 2 - 1, (float) ctx.data().rng.rand() * 2 - 1},
                 {0, 0}
         };
@@ -108,6 +104,7 @@ static void resetWorld(Engine &ctx)
     for (int landmarkID = 0; landmarkID < NUM_LANDMARKS; landmarkID++) {
         Entity landmark = ctx.data().landmarks[landmarkID];
         Kinematics &kL = ctx.getUnsafe<Kinematics>(landmark);
+        kL.size = LANDMARK_SIZE;
         kL.pos = {(float) ctx.data().rng.rand() * 2 - 1, (float) ctx.data().rng.rand() * 2 - 1};
         kL.vel = {0, 0};
     }
@@ -116,12 +113,12 @@ static void resetWorld(Engine &ctx)
         Entity agent = ctx.data().agents[agentID];
         Observation &obs = ctx.getUnsafe<Observation>(agent);
         Kinematics &k = ctx.getUnsafe<Kinematics>(agent);
-        AgentID &id_obj = ctx.getUnsafe<AgentID>(agent);
-        updateObs(ctx, obs, k, id_obj);
+        ObjectID &id_obj = ctx.getUnsafe<ObjectID>(agent);
+        observationSystem(ctx, obs, k, id_obj);
     }
 }
 
-inline void actionSystem(Engine &ctx, AgentID &id, Action &action, Communication &comm) {
+inline void actionSystem(Engine &ctx, ObjectID &id, Action &action, Communication &comm) {
     Vector2 actionForce = {0, 0};
     switch (action.choice) {
         case 0:
@@ -138,199 +135,72 @@ inline void actionSystem(Engine &ctx, AgentID &id, Action &action, Communication
             break;
     }
 
-    ctx.data().total_agent_forces[id.id] = actionForce;
+    ctx.data().total_object_forces[id.id] = actionForce;
 
     for (uint32_t &i : comm.comm) i = 0;
     comm.comm[action.comm] = 1;
 }
 
-inline void agentAgentInteractionSystem(Engine &ctx, AgentID &id, Kinematics &k) {
-    for (int b = 0; b < NUM_AGENTS; b++) {
+inline void objectInteractionSystem(Engine &ctx, ObjectID &id, Kinematics &k) {
+    for (int b = 0; b < NUM_OBJECTS; b++) {
         if (b == id.id) continue;
-        Entity agentB = ctx.data().agents[b];
-        Kinematics kinematicsB = ctx.getUnsafe<Kinematics>(agentB);
-        auto collisionForces = getCollisionForce(k.pos, AGENT_SIZE, kinematicsB.pos, AGENT_SIZE);
-        ctx.data().total_agent_forces[id.id] += std::get<0>(collisionForces);
+        Entity objectB = ctx.data().objects[b];
+        Kinematics kinematicsB = ctx.getUnsafe<Kinematics>(objectB);
+        auto collisionForces = getCollisionForce(k.pos, k.size, kinematicsB.pos, kinematicsB.size);
+        ctx.data().total_object_forces[id.id] += std::get<0>(collisionForces);
     }
 }
 
-inline void landmarkLandmarkInteractionSystem(Engine &ctx, LandmarkID &id, Kinematics &k) {
-    for (int b = 0; b < NUM_LANDMARKS; b++) {
-        if (b == id.id) continue;
-        Entity landmarkB = ctx.data().landmarks[b];
-        Kinematics kinematicsB = ctx.getUnsafe<Kinematics>(landmarkB);
-        auto collisionForces = getCollisionForce(k.pos, LANDMARK_SIZE, kinematicsB.pos, LANDMARK_SIZE);
-        ctx.data().total_landmark_forces[id.id] += std::get<0>(collisionForces);
-    }
-}
-
-inline void agentLandmarkInteractionSystem(Engine &ctx, AgentID &id, Kinematics &k) {
-    for (int b = 0; b < NUM_LANDMARKS; b++) {
-        if (b == id.id) continue;
-        Entity agentB = ctx.data().landmarks[b];
-        Kinematics kinematicsB = ctx.getUnsafe<Kinematics>(agentB);
-        auto collisionForces = getCollisionForce(k.pos, AGENT_SIZE, kinematicsB.pos, AGENT_SIZE);
-        ctx.data().total_agent_forces[id.id] += std::get<0>(collisionForces);
-    }
-}
-
-inline void landmarkAgentInteractionSystem(Engine &ctx, LandmarkID &id, Kinematics &k) {
-    for (int b = 0; b < NUM_AGENTS; b++) {
-        if (b == id.id) continue;
-        Entity agentB = ctx.data().agents[b];
-        Kinematics kinematicsB = ctx.getUnsafe<Kinematics>(agentB);
-        auto collisionForces = getCollisionForce(k.pos, AGENT_SIZE, kinematicsB.pos, AGENT_SIZE);
-        ctx.data().total_agent_forces[id.id] += std::get<0>(collisionForces);
-    }
-}
-
-inline void applyAgentForcesSystem(Engine &ctx, AgentID &id, Kinematics &k) {
+inline void applyForcesSystem(Engine &ctx, ObjectID &id, Kinematics &k) {
     k.vel = k.vel * (1 - VEL_DAMPING);
-    k.vel += ctx.data().total_agent_forces[id.id] / MASS * DT;
+    k.vel += ctx.data().total_object_forces[id.id] / MASS * DT;
     k.pos += k.vel * DT;
 }
-
-inline void applyLandmarkForcesSystem(Engine &ctx, LandmarkID &id, Kinematics &k) {
-    k.vel = k.vel * (1 - VEL_DAMPING);
-    k.vel += ctx.data().total_agent_forces[id.id] / MASS * DT;
-    k.pos += k.vel * DT;
-}
-
-/*inline void actionSystem(Engine &ctx, WorldState state)
-{
-    Vector2 actionForces[NUM_AGENTS];
-
-    // apply_action_force
-    // TODO: add noise
-    for (int id = 0; id < NUM_AGENTS; id++) {
-        Entity agent = ctx.data().agents[id];
-        Action action = ctx.getUnsafe<Action>(agent);
-
-        Vector2 actionForce = {0, 0};
-        switch (action.choice) {
-            case 0:
-                actionForce.x = -1.0f;
-                break;
-            case 1:
-                actionForce.x = 1.0f;
-                break;
-            case 2:
-                actionForce.y = -1.0f;
-                break;
-            case 3:
-                actionForce.y = 1.0f;
-                break;
-        }
-
-        Communication &comm = ctx.getUnsafe<Communication>(agent);
-        for (uint32_t &i : comm.comm) i = 0;
-        comm.comm[action.comm] = 1;
-    }
-
-    // apply_environment_force
-    Vector2 totalAgentForces[NUM_AGENTS];
-    Vector2 totalLandmarkForces[NUM_LANDMARKS];
-
-    // agent-agent interactions
-    for (int a = 0; a < NUM_AGENTS; a++) {
-        Entity agentA = ctx.data().agents[a];
-        Kinematics kinematicsA = ctx.getUnsafe<Kinematics>(agentA);
-        for (int b = a + 1; b < NUM_AGENTS; b++) {
-            Entity agentB = ctx.data().agents[b];
-            Kinematics kinematicsB = ctx.getUnsafe<Kinematics>(agentB);
-            auto collisionForces = getCollisionForce(kinematicsA.pos, AGENT_SIZE, kinematicsB.pos, AGENT_SIZE);
-            totalAgentForces[a] = actionForces[a] + std::get<0>(collisionForces);
-            totalAgentForces[b] = actionForces[b] + std::get<1>(collisionForces);
-        }
-    }
-
-    // landmark-landmark interactions
-    for (int a = 0; a < NUM_LANDMARKS; a++) {
-        for (int b = a + 1; b < NUM_LANDMARKS; b++) {
-            auto collisionForces = getCollisionForce(state.landmark_pos[a], LANDMARK_SIZE, state.landmark_pos[b], LANDMARK_SIZE);
-            totalLandmarkForces[a] += std::get<0>(collisionForces);
-            totalLandmarkForces[b] += std::get<1>(collisionForces);
-        }
-    }
-
-    // agent-landmark interactions
-    for (int a = 0; a < NUM_AGENTS; a++) {
-        Entity agentA = ctx.data().agents[a];
-        Kinematics kinematicsA = ctx.getUnsafe<Kinematics>(agentA);
-        for (int b = 0; b < NUM_LANDMARKS; b++) {
-            auto collisionForces = getCollisionForce(kinematicsA.pos, AGENT_SIZE, state.landmark_pos[b], LANDMARK_SIZE);
-            totalAgentForces[a] = totalAgentForces[a] + std::get<0>(collisionForces);
-            totalLandmarkForces[b] = totalLandmarkForces[b] + std::get<1>(collisionForces);
-        }
-    }
-
-    // integrate_state
-
-    // update agents
-    for (int a = 0; a < NUM_AGENTS; a++) {
-        Entity agent = ctx.data().agents[a];
-        Kinematics &kinematics = ctx.getUnsafe<Kinematics>(agent);
-        kinematics.vel = kinematics.vel * (1 - VEL_DAMPING);
-        kinematics.vel += totalAgentForces[a] / MASS * DT;
-        kinematics.pos += kinematics.vel * DT;
-    }
-
-    // update landmarks
-    for (int l = 0; l < NUM_LANDMARKS; l++) {
-        Vector2 &vel = state.landmark_vel[l];
-        vel = vel * (1 - VEL_DAMPING);
-        vel += totalLandmarkForces[l] / MASS * DT;
-        state.landmark_pos[l] += vel * DT;
-    }
-}*/
 
 inline void timeSystem(Engine &ctx, WorldState &state)
 {
     state.time -= 1;
 }
 
-inline void checkDone(Engine &ctx, WorldReset &reset)
-{
-    reset.resetNow = false;
-    WorldState state = ctx.getSingleton<WorldState>();
+inline void calculateRewardSystem(Engine &ctx, ObjectID &id, Kinematics &k) {
+    float reward = 0.0f;
+    float minDist = -1.0f; // for landmarks
 
-    // reward calculation
+    for (int b = 0; b < NUM_AGENTS; b++) {
+        if (b == id.id) continue;
+        Entity agentB = ctx.data().agents[b];
+        Kinematics kB = ctx.getUnsafe<Kinematics>(agentB);
+        float dist = (k.pos - kB.pos).length();
 
-    // distance reward
-    float reward = 0;
-    for (int i = 0; i < NUM_LANDMARKS; i++) {
-        float minDist = -1;
-        for (int a = 0; a < NUM_AGENTS; a++) {
-            Entity agent = ctx.data().agents[a];
-            Kinematics k = ctx.getUnsafe<Kinematics>(agent);
-            float curDist = (k.pos - state.landmark_pos[i]).length();
-            if (minDist == -1 || curDist < minDist) {
-                minDist = curDist;
-            }
-        }
-        reward -= minDist;
-    }
-
-    // collision reward
-    for (int a = 0; a < NUM_AGENTS; a++) {
-        Entity agentA = ctx.data().agents[a];
-        Kinematics kA = ctx.getUnsafe<Kinematics>(agentA);
-        for (int b = a + 1; b < NUM_AGENTS; b++) {
-            Entity agentB = ctx.data().agents[b];
-            Kinematics kB = ctx.getUnsafe<Kinematics>(agentB);
-            float dist = (kA.pos - kB.pos).length();
+        if (id.id < NUM_AGENTS) {
+            // agent; calculate collision reward
             if (dist < 2 * AGENT_SIZE) {
-                reward -= 1;
+                reward -= 1.0f / 2.0f; // divide by two to handle double-counting
+            }
+        } else {
+            // landmark; calculate min distance reward
+            if (minDist == -1 || dist < minDist) {
+                minDist = dist;
             }
         }
     }
+    if (id.id >= NUM_AGENTS) reward -= minDist;
 
-    // set reward
+    ctx.data().intermediate_rews[id.id] = reward;
+}
+
+inline void applyRewardAndCheckDoneSystem(Engine &ctx, WorldReset &reset) {
+    float totalReward = 0.0f;
+    for (float intermediate_rew : ctx.data().intermediate_rews) {
+        totalReward += intermediate_rew;
+    }
+
     for (int a = 0; a < NUM_AGENTS; a++) {
         Entity agent = ctx.data().agents[a];
-        ctx.getUnsafe<Reward>(agent).rew = reward;
+        ctx.getUnsafe<Reward>(agent).rew = totalReward;
     }
 
+    WorldState state = ctx.getSingleton<WorldState>();
     if (state.time == 0) {
         reset.resetNow = true;
     }
@@ -339,8 +209,6 @@ inline void checkDone(Engine &ctx, WorldReset &reset)
         resetWorld(ctx);
     }
 }
-
-
 
     void Sim::setupTasks(TaskGraph::Builder &builder, const Config &)
 {
@@ -353,10 +221,13 @@ inline void checkDone(Engine &ctx, WorldReset &reset)
     // auto clear_tmp_alloc =
     //     builder.addToGraph<ResetTmpAllocNode>({sort_sys});
 
-    auto action_sys = builder.addToGraph<ParallelForNode<Engine, actionSystem, WorldState>>({});
-    auto time_sys = builder.addToGraph<ParallelForNode<Engine, timeSystem, WorldState>>({action_sys});
-    auto update_obs = builder.addToGraph<ParallelForNode<Engine, observationSystem, Observation, Kinematics, AgentID>>({time_sys});
-    auto terminate_sys = builder.addToGraph<ParallelForNode<Engine, checkDone, WorldReset>>({update_obs});
+    auto action_sys = builder.addToGraph<ParallelForNode<Engine, actionSystem, ObjectID, Action, Communication>>({});
+    auto object_interaction_sys = builder.addToGraph<ParallelForNode<Engine, objectInteractionSystem, ObjectID, Kinematics>>({action_sys});
+    auto apply_forces_sys = builder.addToGraph<ParallelForNode<Engine, applyForcesSystem, ObjectID, Kinematics>>({object_interaction_sys});
+    auto time_sys = builder.addToGraph<ParallelForNode<Engine, timeSystem, WorldState>>({apply_forces_sys});
+    auto update_obs_sys = builder.addToGraph<ParallelForNode<Engine, observationSystem, Observation, Kinematics, ObjectID>>({time_sys});
+    auto calculate_reward_sys = builder.addToGraph<ParallelForNode<Engine, calculateRewardSystem, ObjectID, Kinematics>>({update_obs_sys});
+    auto terminate_sys = builder.addToGraph<ParallelForNode<Engine, applyRewardAndCheckDoneSystem, WorldReset>>({calculate_reward_sys});
 
     (void)terminate_sys;
     // (void) action_sys;
@@ -371,17 +242,18 @@ Sim::Sim(Engine &ctx, const Config& cfg, const WorldInit &init)
 {
     // Make a buffer that will last the duration of simulation for storing
     // agent entity IDs
-    agents = (Entity *)rawAlloc(NUM_AGENTS * sizeof(Entity));
-    landmarks = (Entity *)rawAlloc(NUM_LANDMARKS * sizeof(Entity));
+    objects = (Entity *)rawAlloc((NUM_OBJECTS) * sizeof(Entity));
 
+    agents = objects;
     for (int i = 0; i < NUM_AGENTS; i++) {
-        agents[i] = ctx.makeEntityNow<Agent>();
-        ctx.getUnsafe<AgentID>(agents[i]).id = i;
+        objects[i] = ctx.makeEntityNow<Agent>();
+        ctx.getUnsafe<ObjectID>(objects[i]).id = i;
     }
 
-    for (int i = 0; i < NUM_LANDMARKS; i++) {
-        landmarks[i] = ctx.makeEntityNow<Landmark>();
-        ctx.getUnsafe<LandmarkID>(landmarks[i]).id = i;
+    landmarks = &objects[NUM_AGENTS];
+    for (int i = NUM_AGENTS; i < NUM_OBJECTS; i++) {
+        objects[i] = ctx.makeEntityNow<Landmark>();
+        ctx.getUnsafe<ObjectID>(objects[i]).id = i;
     }
 
     // Initial reset

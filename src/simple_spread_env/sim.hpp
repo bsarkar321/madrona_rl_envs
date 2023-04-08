@@ -10,6 +10,7 @@
 
 #define NUM_AGENTS 3
 #define NUM_LANDMARKS NUM_AGENTS
+#define NUM_OBJECTS (NUM_AGENTS + NUM_LANDMARKS)
 #define DIM_P 2
 #define DIM_V DIM_P
 #define DIM_C 2
@@ -42,18 +43,19 @@ namespace SimpleSpread {
         int32_t time;
     };
 
-    // shared properties
+    // per-object
+
+    struct ObjectID {
+        int32_t id;
+    };
 
     struct Kinematics {
+        float size;
         madrona::math::Vector2 pos;
         madrona::math::Vector2 vel;
     };
 
     // per-agent
-
-    struct AgentID {
-        int32_t id;
-    };
 
     struct Action {
         int32_t choice; // choice from discrete action space
@@ -72,15 +74,11 @@ namespace SimpleSpread {
         float rew;
     };
 
-    struct Agent : public madrona::Archetype<Action, Observation, Kinematics, Communication, Reward, AgentID> {};
+    struct Agent : public madrona::Archetype<Action, Observation, Kinematics, Communication, Reward, ObjectID> {};
 
     // per-landmark
 
-    struct LandmarkID {
-        int32_t id;
-    };
-
-    struct Landmark : public madrona::Archetype<Kinematics, LandmarkID> {};
+    struct Landmark : public madrona::Archetype<Kinematics, ObjectID> {};
 
     struct Config {};
 
@@ -94,11 +92,12 @@ namespace SimpleSpread {
         EpisodeManager *episodeMgr;
         RNG rng;
 
+        madrona::Entity *objects;
         madrona::Entity *agents;
         madrona::Entity *landmarks;
 
-        madrona::math::Vector2 total_agent_forces[NUM_AGENTS];
-        madrona::math::Vector2 total_landmark_forces[NUM_AGENTS];
+        madrona::math::Vector2 total_object_forces[NUM_OBJECTS];
+        float intermediate_rews[NUM_OBJECTS];
     };
 
     class Engine : public ::madrona::CustomContext<Engine, Sim> {
