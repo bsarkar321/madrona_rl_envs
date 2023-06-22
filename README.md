@@ -26,18 +26,13 @@ conda create -n madrona python=3.10
 conda activate madrona
 pip install torch numpy tensorboard
 
-git clone https://github.com/bsarkar321/madrona_rl_envs
+git clone -b overcooked_prebuilt --single-branch https://github.com/bsarkar321/madrona_rl_envs
 cd madrona_rl_envs
 git submodule update --init --recursive
-mkdir build
-cd build
-cmake ..
-make -j
-cd ..
+mkdir build && cd build && cmake -D CUDAToolkit_ROOT=/usr/local/cuda-12.0 -D MADRONA_REQUIRE_CUDA=ON -D CMAKE_BUILD_RPATH_USE_ORIGIN=TRUE .. && make -j && cd ..
 
 pip install -e .
-
-pip install -e overcooked_ai
+pip install -e PantheonRL/overcookedgym/human_aware_rl/overcooked_ai
 ```
 
 NOTE: For cmake, you make need to specify the cuda tookit directory as follows:

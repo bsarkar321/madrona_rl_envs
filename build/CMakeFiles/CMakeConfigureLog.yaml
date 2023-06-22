@@ -1,0 +1,546 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineSystem.cmake:204 (message)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      The system is: Linux - 5.4.0-84-generic - x86_64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is Clang, found in:
+        /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/3.26.4/CompilerIdC/a.out
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang++ -nostdlib++
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+      
+      The CXX compiler identification is Clang, found in:
+        /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/3.26.4/CompilerIdCXX/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:5 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-d9OcFW"
+      binary: "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-d9OcFW"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/cmake"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-d9OcFW
+        
+        Run Build Command(s):/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_87a1f/fast && /usr/bin/make  -f CMakeFiles/cmTC_87a1f.dir/build.make CMakeFiles/cmTC_87a1f.dir/build
+        make[1]: Entering directory '/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-d9OcFW'
+        Building C object CMakeFiles/cmTC_87a1f.dir/CMakeCCompilerABI.c.o
+        /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang   -v -MD -MT CMakeFiles/cmTC_87a1f.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_87a1f.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_87a1f.dir/CMakeCCompilerABI.c.o -c /iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c
+        clang version 15.0.7 (https://github.com/shacklettbp/madrona-toolchain.git c02ecebf9b998a784f5eafaf042c90633b8bd56b)
+        Target: x86_64-pc-linux-gnu
+        Thread model: posix
+        InstalledDir: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7.5.0
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/8
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9
+        Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9
+        Candidate multilib: .;@m64
+        Selected multilib: .;@m64
+        Found CUDA installation: /usr/local/cuda-11.1, version 11.1
+         (in-process)
+         "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang-15" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-d9OcFW -resource-dir /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7 -dependency-file CMakeFiles/cmTC_87a1f.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_87a1f.dir/CMakeCCompilerABI.c.o -sys-header-deps -internal-isystem /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdebug-compilation-dir=/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-d9OcFW -ferror-limit 19 -fgnuc-version=4.2.1 -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_87a1f.dir/CMakeCCompilerABI.c.o -x c /iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c
+        clang -cc1 version 15.0.7 based upon LLVM 15.0.7 default target x86_64-pc-linux-gnu
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include"
+        ignoring nonexistent directory "/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include
+         /usr/local/include
+         /usr/include/x86_64-linux-gnu
+         /usr/include
+        End of search list.
+        Linking C executable cmTC_87a1f
+        /iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_87a1f.dir/link.txt --verbose=1
+        /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang  -v CMakeFiles/cmTC_87a1f.dir/CMakeCCompilerABI.c.o -o cmTC_87a1f 
+        clang version 15.0.7 (https://github.com/shacklettbp/madrona-toolchain.git c02ecebf9b998a784f5eafaf042c90633b8bd56b)
+        Target: x86_64-pc-linux-gnu
+        Thread model: posix
+        InstalledDir: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7.5.0
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/8
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9
+        Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9
+        Candidate multilib: .;@m64
+        Selected multilib: .;@m64
+        Found CUDA installation: /usr/local/cuda-11.1, version 11.1
+         "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/ld.lld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_87a1f /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/../lib/x86_64-pc-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/lib -L/usr/lib CMakeFiles/cmTC_87a1f.dir/CMakeCCompilerABI.c.o /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed -lc /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /lib/x86_64-linux-gnu/crtn.o
+        make[1]: Leaving directory '/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-d9OcFW'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include]
+          add: [/usr/local/include]
+          add: [/usr/include/x86_64-linux-gnu]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include] ==> [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:152 (message)"
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld\\.lld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-d9OcFW]
+        ignore line: []
+        ignore line: [Run Build Command(s):/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_87a1f/fast && /usr/bin/make  -f CMakeFiles/cmTC_87a1f.dir/build.make CMakeFiles/cmTC_87a1f.dir/build]
+        ignore line: [make[1]: Entering directory '/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-d9OcFW']
+        ignore line: [Building C object CMakeFiles/cmTC_87a1f.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang   -v -MD -MT CMakeFiles/cmTC_87a1f.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_87a1f.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_87a1f.dir/CMakeCCompilerABI.c.o -c /iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c]
+        ignore line: [clang version 15.0.7 (https://github.com/shacklettbp/madrona-toolchain.git c02ecebf9b998a784f5eafaf042c90633b8bd56b)]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7.5.0]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/8]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9]
+        ignore line: [Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9]
+        ignore line: [Candidate multilib: .]
+        ignore line: [@m64]
+        ignore line: [Selected multilib: .]
+        ignore line: [@m64]
+        ignore line: [Found CUDA installation: /usr/local/cuda-11.1  version 11.1]
+        ignore line: [ (in-process)]
+        ignore line: [ "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang-15" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-d9OcFW -resource-dir /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7 -dependency-file CMakeFiles/cmTC_87a1f.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_87a1f.dir/CMakeCCompilerABI.c.o -sys-header-deps -internal-isystem /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdebug-compilation-dir=/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-d9OcFW -ferror-limit 19 -fgnuc-version=4.2.1 -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_87a1f.dir/CMakeCCompilerABI.c.o -x c /iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c]
+        ignore line: [clang -cc1 version 15.0.7 based upon LLVM 15.0.7 default target x86_64-pc-linux-gnu]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include"]
+        ignore line: [ignoring nonexistent directory "/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include/x86_64-linux-gnu]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [Linking C executable cmTC_87a1f]
+        ignore line: [/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_87a1f.dir/link.txt --verbose=1]
+        ignore line: [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang  -v CMakeFiles/cmTC_87a1f.dir/CMakeCCompilerABI.c.o -o cmTC_87a1f ]
+        ignore line: [clang version 15.0.7 (https://github.com/shacklettbp/madrona-toolchain.git c02ecebf9b998a784f5eafaf042c90633b8bd56b)]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7.5.0]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/8]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9]
+        ignore line: [Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9]
+        ignore line: [Candidate multilib: .]
+        ignore line: [@m64]
+        ignore line: [Selected multilib: .]
+        ignore line: [@m64]
+        ignore line: [Found CUDA installation: /usr/local/cuda-11.1  version 11.1]
+        link line: [ "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/ld.lld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_87a1f /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/../lib/x86_64-pc-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/lib -L/usr/lib CMakeFiles/cmTC_87a1f.dir/CMakeCCompilerABI.c.o /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed -lc /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /lib/x86_64-linux-gnu/crtn.o]
+          arg [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/ld.lld] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_87a1f] ==> ignore
+          arg [/lib/x86_64-linux-gnu/Scrt1.o] ==> obj [/lib/x86_64-linux-gnu/Scrt1.o]
+          arg [/lib/x86_64-linux-gnu/crti.o] ==> obj [/lib/x86_64-linux-gnu/crti.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o]
+          arg [-L/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/../lib/x86_64-pc-linux-gnu] ==> dir [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/../lib/x86_64-pc-linux-gnu]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/9] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib64] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib64]
+          arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+          arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+          arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+          arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+          arg [-L/lib] ==> dir [/lib]
+          arg [-L/usr/lib] ==> dir [/usr/lib]
+          arg [CMakeFiles/cmTC_87a1f.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a] ==> lib [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a]
+          arg [--as-needed] ==> ignore
+          arg [-lunwind] ==> lib [unwind]
+          arg [--no-as-needed] ==> ignore
+          arg [-lc] ==> lib [c]
+          arg [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a] ==> lib [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a]
+          arg [--as-needed] ==> ignore
+          arg [-lunwind] ==> lib [unwind]
+          arg [--no-as-needed] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o]
+          arg [/lib/x86_64-linux-gnu/crtn.o] ==> obj [/lib/x86_64-linux-gnu/crtn.o]
+        remove lib [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a]
+        remove lib [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a]
+        collapse library dir [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/../lib/x86_64-pc-linux-gnu] ==> [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/x86_64-pc-linux-gnu]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/9] ==> [/usr/lib/gcc/x86_64-linux-gnu/9]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib64] ==> [/usr/lib64]
+        collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+        collapse library dir [/lib/../lib64] ==> [/lib64]
+        collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+        collapse library dir [/lib] ==> [/lib]
+        collapse library dir [/usr/lib] ==> [/usr/lib]
+        implicit libs: [unwind;c;unwind]
+        implicit objs: [/lib/x86_64-linux-gnu/Scrt1.o;/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o;/lib/x86_64-linux-gnu/crtn.o]
+        implicit dirs: [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/x86_64-pc-linux-gnu;/usr/lib/gcc/x86_64-linux-gnu/9;/usr/lib64;/lib/x86_64-linux-gnu;/lib64;/usr/lib/x86_64-linux-gnu;/lib;/usr/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:5 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-voyeMU"
+      binary: "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-voyeMU"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/cmake"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-voyeMU
+        
+        Run Build Command(s):/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_eace2/fast && /usr/bin/make  -f CMakeFiles/cmTC_eace2.dir/build.make CMakeFiles/cmTC_eace2.dir/build
+        make[1]: Entering directory '/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-voyeMU'
+        Building CXX object CMakeFiles/cmTC_eace2.dir/CMakeCXXCompilerABI.cpp.o
+        /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang++ -nostdlib++   -v -MD -MT CMakeFiles/cmTC_eace2.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_eace2.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_eace2.dir/CMakeCXXCompilerABI.cpp.o -c /iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp
+        clang version 15.0.7 (https://github.com/shacklettbp/madrona-toolchain.git c02ecebf9b998a784f5eafaf042c90633b8bd56b)
+        Target: x86_64-pc-linux-gnu
+        Thread model: posix
+        InstalledDir: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7.5.0
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/8
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9
+        Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9
+        Candidate multilib: .;@m64
+        Selected multilib: .;@m64
+        Found CUDA installation: /usr/local/cuda-11.1, version 11.1
+         (in-process)
+         "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang-15" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-voyeMU -resource-dir /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7 -dependency-file CMakeFiles/cmTC_eace2.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_eace2.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -internal-isystem /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -fdebug-compilation-dir=/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-voyeMU -ferror-limit 19 -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_eace2.dir/CMakeCXXCompilerABI.cpp.o -x c++ /iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp
+        clang -cc1 version 15.0.7 based upon LLVM 15.0.7 default target x86_64-pc-linux-gnu
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include"
+        ignoring nonexistent directory "/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include
+         /usr/local/include
+         /usr/include/x86_64-linux-gnu
+         /usr/include
+        End of search list.
+        Linking CXX executable cmTC_eace2
+        /iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_eace2.dir/link.txt --verbose=1
+        /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang++ -nostdlib++  -v CMakeFiles/cmTC_eace2.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_eace2 
+        clang version 15.0.7 (https://github.com/shacklettbp/madrona-toolchain.git c02ecebf9b998a784f5eafaf042c90633b8bd56b)
+        Target: x86_64-pc-linux-gnu
+        Thread model: posix
+        InstalledDir: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7.5.0
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/8
+        Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9
+        Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9
+        Candidate multilib: .;@m64
+        Selected multilib: .;@m64
+        Found CUDA installation: /usr/local/cuda-11.1, version 11.1
+         "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/ld.lld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_eace2 /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/../lib/x86_64-pc-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/lib -L/usr/lib CMakeFiles/cmTC_eace2.dir/CMakeCXXCompilerABI.cpp.o -lm /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed -lc /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /lib/x86_64-linux-gnu/crtn.o
+        make[1]: Leaving directory '/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-voyeMU'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include]
+          add: [/usr/local/include]
+          add: [/usr/include/x86_64-linux-gnu]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include] ==> [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:152 (message)"
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:5 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld\\.lld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-voyeMU]
+        ignore line: []
+        ignore line: [Run Build Command(s):/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_eace2/fast && /usr/bin/make  -f CMakeFiles/cmTC_eace2.dir/build.make CMakeFiles/cmTC_eace2.dir/build]
+        ignore line: [make[1]: Entering directory '/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-voyeMU']
+        ignore line: [Building CXX object CMakeFiles/cmTC_eace2.dir/CMakeCXXCompilerABI.cpp.o]
+        ignore line: [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang++ -nostdlib++   -v -MD -MT CMakeFiles/cmTC_eace2.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_eace2.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_eace2.dir/CMakeCXXCompilerABI.cpp.o -c /iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [clang version 15.0.7 (https://github.com/shacklettbp/madrona-toolchain.git c02ecebf9b998a784f5eafaf042c90633b8bd56b)]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7.5.0]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/8]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9]
+        ignore line: [Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9]
+        ignore line: [Candidate multilib: .]
+        ignore line: [@m64]
+        ignore line: [Selected multilib: .]
+        ignore line: [@m64]
+        ignore line: [Found CUDA installation: /usr/local/cuda-11.1  version 11.1]
+        ignore line: [ (in-process)]
+        ignore line: [ "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang-15" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-voyeMU -resource-dir /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7 -dependency-file CMakeFiles/cmTC_eace2.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_eace2.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -internal-isystem /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -fdebug-compilation-dir=/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-voyeMU -ferror-limit 19 -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_eace2.dir/CMakeCXXCompilerABI.cpp.o -x c++ /iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [clang -cc1 version 15.0.7 based upon LLVM 15.0.7 default target x86_64-pc-linux-gnu]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include"]
+        ignore line: [ignoring nonexistent directory "/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include/x86_64-linux-gnu]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [Linking CXX executable cmTC_eace2]
+        ignore line: [/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_eace2.dir/link.txt --verbose=1]
+        ignore line: [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang++ -nostdlib++  -v CMakeFiles/cmTC_eace2.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_eace2 ]
+        ignore line: [clang version 15.0.7 (https://github.com/shacklettbp/madrona-toolchain.git c02ecebf9b998a784f5eafaf042c90633b8bd56b)]
+        ignore line: [Target: x86_64-pc-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/7.5.0]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/8]
+        ignore line: [Found candidate GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9]
+        ignore line: [Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9]
+        ignore line: [Candidate multilib: .]
+        ignore line: [@m64]
+        ignore line: [Selected multilib: .]
+        ignore line: [@m64]
+        ignore line: [Found CUDA installation: /usr/local/cuda-11.1  version 11.1]
+        link line: [ "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/ld.lld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_eace2 /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/../lib/x86_64-pc-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/lib -L/usr/lib CMakeFiles/cmTC_eace2.dir/CMakeCXXCompilerABI.cpp.o -lm /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed -lc /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /lib/x86_64-linux-gnu/crtn.o]
+          arg [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/ld.lld] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_eace2] ==> ignore
+          arg [/lib/x86_64-linux-gnu/Scrt1.o] ==> obj [/lib/x86_64-linux-gnu/Scrt1.o]
+          arg [/lib/x86_64-linux-gnu/crti.o] ==> obj [/lib/x86_64-linux-gnu/crti.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o]
+          arg [-L/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/../lib/x86_64-pc-linux-gnu] ==> dir [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/../lib/x86_64-pc-linux-gnu]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/9] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib64] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib64]
+          arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+          arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+          arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+          arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+          arg [-L/lib] ==> dir [/lib]
+          arg [-L/usr/lib] ==> dir [/usr/lib]
+          arg [CMakeFiles/cmTC_eace2.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+          arg [-lm] ==> lib [m]
+          arg [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a] ==> lib [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a]
+          arg [--as-needed] ==> ignore
+          arg [-lunwind] ==> lib [unwind]
+          arg [--no-as-needed] ==> ignore
+          arg [-lc] ==> lib [c]
+          arg [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a] ==> lib [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a]
+          arg [--as-needed] ==> ignore
+          arg [-lunwind] ==> lib [unwind]
+          arg [--no-as-needed] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o]
+          arg [/lib/x86_64-linux-gnu/crtn.o] ==> obj [/lib/x86_64-linux-gnu/crtn.o]
+        remove lib [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a]
+        remove lib [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a]
+        collapse library dir [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/../lib/x86_64-pc-linux-gnu] ==> [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/x86_64-pc-linux-gnu]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/9] ==> [/usr/lib/gcc/x86_64-linux-gnu/9]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib64] ==> [/usr/lib64]
+        collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+        collapse library dir [/lib/../lib64] ==> [/lib64]
+        collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+        collapse library dir [/lib] ==> [/lib]
+        collapse library dir [/usr/lib] ==> [/usr/lib]
+        implicit libs: [m;unwind;c;unwind]
+        implicit objs: [/lib/x86_64-linux-gnu/Scrt1.o;/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o;/lib/x86_64-linux-gnu/crtn.o]
+        implicit dirs: [/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/x86_64-pc-linux-gnu;/usr/lib/gcc/x86_64-linux-gnu/9;/usr/lib64;/lib/x86_64-linux-gnu;/lib64;/usr/lib/x86_64-linux-gnu;/lib;/usr/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckCSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "external/madrona/cmake/dependencies.cmake:3 (find_package)"
+      - "CMakeLists.txt:9 (include)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-qgy6fY"
+      binary: "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-qgy6fY"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g -ggdb3"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/cmake"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-qgy6fY
+        
+        Run Build Command(s):/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_b22a6/fast && /usr/bin/make  -f CMakeFiles/cmTC_b22a6.dir/build.make CMakeFiles/cmTC_b22a6.dir/build
+        make[1]: Entering directory '/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-qgy6fY'
+        Building C object CMakeFiles/cmTC_b22a6.dir/src.c.o
+        /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang -DCMAKE_HAVE_LIBC_PTHREAD  -std=c11 -MD -MT CMakeFiles/cmTC_b22a6.dir/src.c.o -MF CMakeFiles/cmTC_b22a6.dir/src.c.o.d -o CMakeFiles/cmTC_b22a6.dir/src.c.o -c /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-qgy6fY/src.c
+        Linking C executable cmTC_b22a6
+        /iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b22a6.dir/link.txt --verbose=1
+        /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang CMakeFiles/cmTC_b22a6.dir/src.c.o -o cmTC_b22a6 
+        ld.lld: error: undefined symbol: pthread_create
+        >>> referenced by src.c
+        >>>               CMakeFiles/cmTC_b22a6.dir/src.c.o:(main)
+        
+        ld.lld: error: undefined symbol: pthread_detach
+        >>> referenced by src.c
+        >>>               CMakeFiles/cmTC_b22a6.dir/src.c.o:(main)
+        
+        ld.lld: error: undefined symbol: pthread_cancel
+        >>> referenced by src.c
+        >>>               CMakeFiles/cmTC_b22a6.dir/src.c.o:(main)
+        
+        ld.lld: error: undefined symbol: pthread_join
+        >>> referenced by src.c
+        >>>               CMakeFiles/cmTC_b22a6.dir/src.c.o:(main)
+        clang-15: error: linker command failed with exit code 1 (use -v to see invocation)
+        make[1]: *** [CMakeFiles/cmTC_b22a6.dir/build.make:100: cmTC_b22a6] Error 1
+        make[1]: Leaving directory '/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-qgy6fY'
+        make: *** [Makefile:127: cmTC_b22a6/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/FindThreads.cmake:136 (try_compile)"
+      - "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/FindThreads.cmake:169 (_threads_check_flag_pthread)"
+      - "external/madrona/cmake/dependencies.cmake:3 (find_package)"
+      - "CMakeLists.txt:9 (include)"
+    checks:
+      - "Check if compiler accepts -pthread"
+    directories:
+      source: "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-vXXZIW"
+      binary: "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-vXXZIW"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g -ggdb3"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/cmake"
+    buildResult:
+      variable: "THREADS_HAVE_PTHREAD_ARG"
+      cached: true
+      stdout: |
+        Change Dir: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-vXXZIW
+        
+        Run Build Command(s):/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_1dce8/fast && /usr/bin/make  -f CMakeFiles/cmTC_1dce8.dir/build.make CMakeFiles/cmTC_1dce8.dir/build
+        make[1]: Entering directory '/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-vXXZIW'
+        Building C object CMakeFiles/cmTC_1dce8.dir/CheckForPthreads.c.o
+        /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang   -std=c11 -MD -MT CMakeFiles/cmTC_1dce8.dir/CheckForPthreads.c.o -MF CMakeFiles/cmTC_1dce8.dir/CheckForPthreads.c.o.d -o CMakeFiles/cmTC_1dce8.dir/CheckForPthreads.c.o -c /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-vXXZIW/CheckForPthreads.c
+        Linking C executable cmTC_1dce8
+        /iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1dce8.dir/link.txt --verbose=1
+        /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang CMakeFiles/cmTC_1dce8.dir/CheckForPthreads.c.o -o cmTC_1dce8  -pthread 
+        make[1]: Leaving directory '/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-vXXZIW'
+        
+      exitCode: 0
+...

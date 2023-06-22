@@ -16,5 +16,12 @@ setup(name='madronarlenvs',
           # 'stable-baselines3',
           'gym==0.23.1',
           'hanabi_learning_environment',
+          'tensorboard',
+          'flask',
+          'onnx',
+          'onnx_tf',
+          'tensorflow',
+          'tensorflow_probability',
+          'tensorflowjs'
       ],
       )

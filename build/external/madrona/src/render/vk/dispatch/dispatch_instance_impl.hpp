@@ -1,0 +1,15 @@
+    PFN_vkEnumeratePhysicalDevices enumeratePhysicalDevices;
+    PFN_vkGetPhysicalDeviceFeatures2 getPhysicalDeviceFeatures2;
+    PFN_vkGetPhysicalDeviceProperties getPhysicalDeviceProperties;
+    PFN_vkGetPhysicalDeviceProperties2 getPhysicalDeviceProperties2;
+    PFN_vkGetPhysicalDeviceFormatProperties2 getPhysicalDeviceFormatProperties2;
+    PFN_vkGetPhysicalDeviceMemoryProperties2 getPhysicalDeviceMemoryProperties2;
+    PFN_vkGetPhysicalDeviceQueueFamilyProperties2 getPhysicalDeviceQueueFamilyProperties2;
+    PFN_vkGetInstanceProcAddr getInstanceProcAddr;
+    PFN_vkCreateDevice createDevice;
+    PFN_vkDestroyInstance destroyInstance;
+    PFN_vkDestroySurfaceKHR destroySurfaceKHR;
+    PFN_vkGetPhysicalDeviceSurfaceCapabilitiesKHR getPhysicalDeviceSurfaceCapabilitiesKHR;
+    PFN_vkGetPhysicalDeviceSurfaceFormatsKHR getPhysicalDeviceSurfaceFormatsKHR;
+    PFN_vkGetPhysicalDeviceSurfacePresentModesKHR getPhysicalDeviceSurfacePresentModesKHR;
+    PFN_vkGetPhysicalDeviceSurfaceSupportKHR getPhysicalDeviceSurfaceSupportKHR;
