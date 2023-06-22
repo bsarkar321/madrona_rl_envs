@@ -1,4 +1,4 @@
-# Install script for directory: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/_deps/madronabundledtoolchain-subbuild
+# Install script for directory: /content/madrona_rl_envs/build/_deps/madronabundledtoolchain-subbuild
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/_deps/madronabundledtoolchain-subbuild/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/content/madrona_rl_envs/build/_deps/madronabundledtoolchain-subbuild/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

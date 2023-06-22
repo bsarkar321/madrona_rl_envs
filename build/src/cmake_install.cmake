@@ -1,4 +1,4 @@
-# Install script for directory: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/src
+# Install script for directory: /content/madrona_rl_envs/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,31 +39,31 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/llvm-objdump")
+  set(CMAKE_OBJDUMP "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/llvm-objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/src/hanabi_env/cmake_install.cmake")
+  include("/content/madrona_rl_envs/build/src/hanabi_env/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/src/cartpole_env/cmake_install.cmake")
+  include("/content/madrona_rl_envs/build/src/cartpole_env/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/src/balance_beam_env/cmake_install.cmake")
+  include("/content/madrona_rl_envs/build/src/balance_beam_env/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/src/overcooked_env/cmake_install.cmake")
+  include("/content/madrona_rl_envs/build/src/overcooked_env/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/src/overcooked2_env/cmake_install.cmake")
+  include("/content/madrona_rl_envs/build/src/overcooked2_env/cmake_install.cmake")
 endif()
 

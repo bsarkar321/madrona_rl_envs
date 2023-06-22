@@ -4,19 +4,19 @@
 cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
-  "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain"
-  "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/_deps/madronabundledtoolchain-build"
-  "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/_deps/madronabundledtoolchain-subbuild/madronabundledtoolchain-populate-prefix"
-  "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/_deps/madronabundledtoolchain-subbuild/madronabundledtoolchain-populate-prefix/tmp"
-  "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/download/timestamps"
-  "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/download"
-  "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/download/timestamps"
+  "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain"
+  "/content/madrona_rl_envs/build/_deps/madronabundledtoolchain-build"
+  "/content/madrona_rl_envs/build/_deps/madronabundledtoolchain-subbuild/madronabundledtoolchain-populate-prefix"
+  "/content/madrona_rl_envs/build/_deps/madronabundledtoolchain-subbuild/madronabundledtoolchain-populate-prefix/tmp"
+  "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/download/timestamps"
+  "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/download"
+  "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/download/timestamps"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/download/timestamps/${subDir}")
+    file(MAKE_DIRECTORY "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/download/timestamps/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/download/timestamps${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/download/timestamps${cfgdir}") # cfgdir has leading slash
 endif()

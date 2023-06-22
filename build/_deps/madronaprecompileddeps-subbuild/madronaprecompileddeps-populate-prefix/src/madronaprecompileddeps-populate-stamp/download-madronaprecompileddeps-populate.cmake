@@ -22,14 +22,14 @@ function(check_file_hash has_hash hash_is_good)
   set("${has_hash}" TRUE PARENT_SCOPE)
 
   message(STATUS "verifying file...
-       file='/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar'")
+       file='/content/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar'")
 
-  file("SHA256" "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar" actual_value)
+  file("SHA256" "/content/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar" actual_value)
 
   if(NOT "${actual_value}" STREQUAL "5e77b1fe83e432cfdea8b5fad3de3c653b4fcd2478cdcebc14576d2cc49e1937")
     set("${hash_is_good}" FALSE PARENT_SCOPE)
     message(STATUS "SHA256 hash of
-    /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar
+    /content/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar
   does not match expected value
     expected: '5e77b1fe83e432cfdea8b5fad3de3c653b4fcd2478cdcebc14576d2cc49e1937'
       actual: '${actual_value}'")
@@ -71,7 +71,7 @@ function(sleep_before_download attempt)
   execute_process(COMMAND "${CMAKE_COMMAND}" -E sleep "${sleep_seconds}")
 endfunction()
 
-if("/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar" STREQUAL "")
+if("/content/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar" STREQUAL "")
   message(FATAL_ERROR "LOCAL can't be empty")
 endif()
 
@@ -79,32 +79,32 @@ if("https://github.com/shacklettbp/madrona-deps/releases/download/ce1b3dc/madron
   message(FATAL_ERROR "REMOTE can't be empty")
 endif()
 
-if(EXISTS "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar")
+if(EXISTS "/content/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar")
   check_file_hash(has_hash hash_is_good)
   if(has_hash)
     if(hash_is_good)
       message(STATUS "File already exists and hash match (skip download):
-  file='/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar'
+  file='/content/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar'
   SHA256='5e77b1fe83e432cfdea8b5fad3de3c653b4fcd2478cdcebc14576d2cc49e1937'"
       )
       return()
     else()
       message(STATUS "File already exists but hash mismatch. Removing...")
-      file(REMOVE "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar")
+      file(REMOVE "/content/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar")
     endif()
   else()
     message(STATUS "File already exists but no hash specified (use URL_HASH):
-  file='/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar'
+  file='/content/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar'
 Old file will be removed and new file downloaded from URL."
     )
-    file(REMOVE "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar")
+    file(REMOVE "/content/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar")
   endif()
 endif()
 
 set(retry_number 5)
 
 message(STATUS "Downloading...
-   dst='/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar'
+   dst='/content/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar'
    timeout='none'
    inactivity timeout='none'"
 )
@@ -126,7 +126,7 @@ foreach(i RANGE ${retry_number})
 
       file(
         DOWNLOAD
-        "${url}" "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar"
+        "${url}" "/content/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar"
         SHOW_PROGRESS
         # no TIMEOUT
         # no INACTIVITY_TIMEOUT
@@ -143,7 +143,7 @@ foreach(i RANGE ${retry_number})
         check_file_hash(has_hash hash_is_good)
         if(has_hash AND NOT hash_is_good)
           message(STATUS "Hash mismatch, removing...")
-          file(REMOVE "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar")
+          file(REMOVE "/content/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar")
         else()
           message(STATUS "Downloading... done")
           return()

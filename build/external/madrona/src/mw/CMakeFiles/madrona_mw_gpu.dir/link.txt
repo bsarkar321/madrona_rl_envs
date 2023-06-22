@@ -1,2 +1,2 @@
-/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/llvm-ar qc libmadrona_mw_gpu.a CMakeFiles/madrona_mw_gpu.dir/cpp_compile.cpp.o CMakeFiles/madrona_mw_gpu.dir/cuda_compile_helpers.cpp.o CMakeFiles/madrona_mw_gpu.dir/cuda_exec.cpp.o
-/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/llvm-ranlib libmadrona_mw_gpu.a
+/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/llvm-ar qc libmadrona_mw_gpu.a CMakeFiles/madrona_mw_gpu.dir/cpp_compile.cpp.o CMakeFiles/madrona_mw_gpu.dir/cuda_compile_helpers.cpp.o CMakeFiles/madrona_mw_gpu.dir/cuda_exec.cpp.o
+/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/llvm-ranlib libmadrona_mw_gpu.a

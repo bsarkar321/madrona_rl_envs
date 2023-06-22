@@ -4,14 +4,14 @@
 
 
 # Configuration directories and files
-SourceDirectory: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/src/render/vk/external/glslang
-BuildDirectory: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/external/madrona/src/render/vk/external/glslang
+SourceDirectory: /content/madrona_rl_envs/external/madrona/src/render/vk/external/glslang
+BuildDirectory: /content/madrona_rl_envs/build/external/madrona/src/render/vk/external/glslang
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: iliad5.stanford.edu
+Site: 977a680c33a0
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Linux-clang++
@@ -27,8 +27,8 @@ SubmitInactivityTimeout:
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/bin/cmake" "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/src/render/vk/external/glslang"
-MakeCommand: /iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
+ConfigureCommand: "/usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake" "/content/madrona_rl_envs/external/madrona/src/render/vk/external/glslang"
+MakeCommand: /usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
 # version control
@@ -63,7 +63,7 @@ UpdateOptions:
 UpdateType: git
 
 # Compiler info
-Compiler: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang++
+Compiler: /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang++
 CompilerVersion: 15.0.7
 
 # Dynamic analysis (MemCheck)
@@ -76,7 +76,7 @@ CudaSanitizerCommand:
 CudaSanitizerCommandOptions: 
 MemoryCheckType: 
 MemoryCheckSanitizerOptions: 
-MemoryCheckCommand: /usr/local/cuda/bin/cuda-memcheck
+MemoryCheckCommand: /usr/local/cuda/bin/compute-sanitizer
 MemoryCheckCommandOptions: 
 MemoryCheckSuppressionFile: 
 

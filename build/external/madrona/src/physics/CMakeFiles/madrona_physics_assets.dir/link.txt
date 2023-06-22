@@ -1,2 +1,2 @@
-/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/llvm-ar qc libmadrona_physics_assets.a CMakeFiles/madrona_physics_assets.dir/physics_assets.cpp.o CMakeFiles/madrona_physics_assets.dir/geometry.cpp.o
-/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/llvm-ranlib libmadrona_physics_assets.a
+/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/llvm-ar qc libmadrona_physics_assets.a CMakeFiles/madrona_physics_assets.dir/physics_assets.cpp.o CMakeFiles/madrona_physics_assets.dir/geometry.cpp.o
+/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/llvm-ranlib libmadrona_physics_assets.a

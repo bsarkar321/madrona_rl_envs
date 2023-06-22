@@ -5,8 +5,8 @@ cmake_minimum_required(VERSION 3.5)
 
 # Make file names absolute:
 #
-get_filename_component(filename "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar" ABSOLUTE)
-get_filename_component(directory "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/_deps/madronaprecompileddeps-src" ABSOLUTE)
+get_filename_component(filename "/content/madrona_rl_envs/external/madrona/external/madrona-deps/download/cur.tar" ABSOLUTE)
+get_filename_component(directory "/content/madrona_rl_envs/build/_deps/madronaprecompileddeps-src" ABSOLUTE)
 
 message(STATUS "extracting...
      src='${filename}'

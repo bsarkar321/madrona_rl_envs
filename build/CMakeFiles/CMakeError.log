@@ -1,0 +1,53 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-34uhyb
+
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_da9d5/fast && /usr/bin/make  -f CMakeFiles/cmTC_da9d5.dir/build.make CMakeFiles/cmTC_da9d5.dir/build
+make[1]: Entering directory '/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-34uhyb'
+Building C object CMakeFiles/cmTC_da9d5.dir/src.c.o
+/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang -DCMAKE_HAVE_LIBC_PTHREAD  -std=c11 -MD -MT CMakeFiles/cmTC_da9d5.dir/src.c.o -MF CMakeFiles/cmTC_da9d5.dir/src.c.o.d -o CMakeFiles/cmTC_da9d5.dir/src.c.o -c /content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-34uhyb/src.c
+Linking C executable cmTC_da9d5
+/usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_da9d5.dir/link.txt --verbose=1
+/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang CMakeFiles/cmTC_da9d5.dir/src.c.o -o cmTC_da9d5 
+ld.lld: error: undefined symbol: pthread_create
+>>> referenced by src.c
+>>>               CMakeFiles/cmTC_da9d5.dir/src.c.o:(main)
+
+ld.lld: error: undefined symbol: pthread_detach
+>>> referenced by src.c
+>>>               CMakeFiles/cmTC_da9d5.dir/src.c.o:(main)
+
+ld.lld: error: undefined symbol: pthread_cancel
+>>> referenced by src.c
+>>>               CMakeFiles/cmTC_da9d5.dir/src.c.o:(main)
+
+ld.lld: error: undefined symbol: pthread_join
+>>> referenced by src.c
+>>>               CMakeFiles/cmTC_da9d5.dir/src.c.o:(main)
+clang-15: error: linker command failed with exit code 1 (use -v to see invocation)
+make[1]: *** [CMakeFiles/cmTC_da9d5.dir/build.make:100: cmTC_da9d5] Error 1
+make[1]: Leaving directory '/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-34uhyb'
+make: *** [Makefile:127: cmTC_da9d5/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+

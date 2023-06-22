@@ -3,9 +3,9 @@
 # No other meaning or use of this file is supported.
 
 method=url
-command=/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/bin/cmake;-P;/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/_deps/madronaprecompileddeps-subbuild/madronaprecompileddeps-populate-prefix/src/madronaprecompileddeps-populate-stamp/download-madronaprecompileddeps-populate.cmake;COMMAND;/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/bin/cmake;-P;/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/_deps/madronaprecompileddeps-subbuild/madronaprecompileddeps-populate-prefix/src/madronaprecompileddeps-populate-stamp/verify-madronaprecompileddeps-populate.cmake;COMMAND;/iliad/group/cluster-support/anaconda/main/anaconda3/envs/madrona2/lib/python3.10/site-packages/cmake/data/bin/cmake;-P;/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/_deps/madronaprecompileddeps-subbuild/madronaprecompileddeps-populate-prefix/src/madronaprecompileddeps-populate-stamp/extract-madronaprecompileddeps-populate.cmake
-source_dir=/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/_deps/madronaprecompileddeps-src
-work_dir=/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/_deps
+command=/usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake;-P;/content/madrona_rl_envs/build/_deps/madronaprecompileddeps-subbuild/madronaprecompileddeps-populate-prefix/src/madronaprecompileddeps-populate-stamp/download-madronaprecompileddeps-populate.cmake;COMMAND;/usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake;-P;/content/madrona_rl_envs/build/_deps/madronaprecompileddeps-subbuild/madronaprecompileddeps-populate-prefix/src/madronaprecompileddeps-populate-stamp/verify-madronaprecompileddeps-populate.cmake;COMMAND;/usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake;-P;/content/madrona_rl_envs/build/_deps/madronaprecompileddeps-subbuild/madronaprecompileddeps-populate-prefix/src/madronaprecompileddeps-populate-stamp/extract-madronaprecompileddeps-populate.cmake
+source_dir=/content/madrona_rl_envs/build/_deps/madronaprecompileddeps-src
+work_dir=/content/madrona_rl_envs/build/_deps
 url(s)=https://github.com/shacklettbp/madrona-deps/releases/download/ce1b3dc/madrona-deps-ce1b3dc-linux.tar.xz
 hash=SHA256=5e77b1fe83e432cfdea8b5fad3de3c653b4fcd2478cdcebc14576d2cc49e1937
 no_extract=

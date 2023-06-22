@@ -1,4 +1,4 @@
-# Install script for directory: /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs
+# Install script for directory: /content/madrona_rl_envs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,17 +39,17 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/llvm-objdump")
+  set(CMAKE_OBJDUMP "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/llvm-objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/external/cmake_install.cmake")
+  include("/content/madrona_rl_envs/build/external/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/src/cmake_install.cmake")
+  include("/content/madrona_rl_envs/build/src/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -60,5 +60,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/content/madrona_rl_envs/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

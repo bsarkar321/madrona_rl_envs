@@ -1,11 +1,11 @@
 external/madrona/src/mw/CMakeFiles/madrona_mw_gpu.dir/cuda_compile_helpers.cpp.o: \
-  /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/src/mw/cuda_compile_helpers.cpp \
-  /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/src/mw/cuda_compile_helpers.hpp \
-  /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/src/common/../../include/madrona/macros.hpp \
-  /usr/local/cuda-12.0/include/nvrtc.h \
-  /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/libcxx-noexcept/include/c++/v1/stdlib.h \
-  /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/libcxx-noexcept/include/c++/v1/__config \
-  /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/libcxx-noexcept/include/c++/v1/__config_site \
+  /content/madrona_rl_envs/external/madrona/src/mw/cuda_compile_helpers.cpp \
+  /content/madrona_rl_envs/external/madrona/src/mw/cuda_compile_helpers.hpp \
+  /content/madrona_rl_envs/external/madrona/src/common/../../include/madrona/macros.hpp \
+  /usr/local/cuda/include/nvrtc.h \
+  /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/libcxx-noexcept/include/c++/v1/stdlib.h \
+  /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/libcxx-noexcept/include/c++/v1/__config \
+  /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/libcxx-noexcept/include/c++/v1/__config_site \
   /usr/include/features.h /usr/include/stdc-predef.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
@@ -13,8 +13,8 @@ external/madrona/src/mw/CMakeFiles/madrona_mw_gpu.dir/cuda_compile_helpers.cpp.o
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h /usr/include/stdlib.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
-  /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/libcxx-noexcept/include/c++/v1/stddef.h \
-  /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include/stddef.h \
+  /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/libcxx-noexcept/include/c++/v1/stddef.h \
+  /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include/stddef.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
@@ -49,10 +49,10 @@ external/madrona/src/mw/CMakeFiles/madrona_mw_gpu.dir/cuda_compile_helpers.cpp.o
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
-  /usr/local/cuda-12.0/include/nvJitLink.h \
-  /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/libcxx-noexcept/include/c++/v1/stdint.h \
-  /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include/stdint.h \
+  /usr/local/cuda/include/nvJitLink.h \
+  /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/libcxx-noexcept/include/c++/v1/stdint.h \
+  /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include/stdint.h \
   /usr/include/stdint.h /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
-  /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/src/mw/cuda_compile_helpers.inl \
-  /iliad/u/bidiptas/madrona_prebuilt/madrona_rl_envs/external/madrona/src/common/../../include/madrona/crash.hpp
+  /content/madrona_rl_envs/external/madrona/src/mw/cuda_compile_helpers.inl \
+  /content/madrona_rl_envs/external/madrona/src/common/../../include/madrona/crash.hpp
