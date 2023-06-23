@@ -26,12 +26,12 @@ Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" p
 The CXX compiler identification is Clang, found in "/content/madrona_rl_envs/build/CMakeFiles/3.25.2/CompilerIdCXX/a.out"
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-LHpHKb
+Change Dir: /content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-rdBy63
 
-Run Build Command(s):/usr/bin/make -f Makefile cmTC_e671a/fast && /usr/bin/make  -f CMakeFiles/cmTC_e671a.dir/build.make CMakeFiles/cmTC_e671a.dir/build
-make[1]: Entering directory '/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-LHpHKb'
-Building C object CMakeFiles/cmTC_e671a.dir/CMakeCCompilerABI.c.o
-/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang   -v -MD -MT CMakeFiles/cmTC_e671a.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_e671a.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_e671a.dir/CMakeCCompilerABI.c.o -c /usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.25/Modules/CMakeCCompilerABI.c
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_48881/fast && /usr/bin/make  -f CMakeFiles/cmTC_48881.dir/build.make CMakeFiles/cmTC_48881.dir/build
+make[1]: Entering directory '/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-rdBy63'
+Building C object CMakeFiles/cmTC_48881.dir/CMakeCCompilerABI.c.o
+/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang   -v -MD -MT CMakeFiles/cmTC_48881.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_48881.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_48881.dir/CMakeCCompilerABI.c.o -c /usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.25/Modules/CMakeCCompilerABI.c
 clang version 15.0.7 (https://github.com/shacklettbp/madrona-toolchain.git c02ecebf9b998a784f5eafaf042c90633b8bd56b)
 Target: x86_64-pc-linux-gnu
 Thread model: posix
@@ -42,7 +42,7 @@ Candidate multilib: .;@m64
 Selected multilib: .;@m64
 Found CUDA installation: /usr/local/cuda-12.1, version 
  (in-process)
- "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang-15" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-LHpHKb -resource-dir /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7 -dependency-file CMakeFiles/cmTC_e671a.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_e671a.dir/CMakeCCompilerABI.c.o -sys-header-deps -internal-isystem /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdebug-compilation-dir=/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-LHpHKb -ferror-limit 19 -fgnuc-version=4.2.1 -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_e671a.dir/CMakeCCompilerABI.c.o -x c /usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.25/Modules/CMakeCCompilerABI.c
+ "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang-15" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-rdBy63 -resource-dir /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7 -dependency-file CMakeFiles/cmTC_48881.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_48881.dir/CMakeCCompilerABI.c.o -sys-header-deps -internal-isystem /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdebug-compilation-dir=/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-rdBy63 -ferror-limit 19 -fgnuc-version=4.2.1 -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_48881.dir/CMakeCCompilerABI.c.o -x c /usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.25/Modules/CMakeCCompilerABI.c
 clang -cc1 version 15.0.7 based upon LLVM 15.0.7 default target x86_64-pc-linux-gnu
 ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include"
 ignoring nonexistent directory "/include"
@@ -53,9 +53,9 @@ ignoring nonexistent directory "/include"
  /usr/include/x86_64-linux-gnu
  /usr/include
 End of search list.
-Linking C executable cmTC_e671a
-/usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e671a.dir/link.txt --verbose=1
-/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang  -v CMakeFiles/cmTC_e671a.dir/CMakeCCompilerABI.c.o -o cmTC_e671a 
+Linking C executable cmTC_48881
+/usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_48881.dir/link.txt --verbose=1
+/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang  -v CMakeFiles/cmTC_48881.dir/CMakeCCompilerABI.c.o -o cmTC_48881 
 clang version 15.0.7 (https://github.com/shacklettbp/madrona-toolchain.git c02ecebf9b998a784f5eafaf042c90633b8bd56b)
 Target: x86_64-pc-linux-gnu
 Thread model: posix
@@ -65,8 +65,8 @@ Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9
 Candidate multilib: .;@m64
 Selected multilib: .;@m64
 Found CUDA installation: /usr/local/cuda-12.1, version 
- "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/ld.lld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_e671a /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/../lib/x86_64-pc-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/lib -L/usr/lib -L/usr/local/cuda/lib64/stubs CMakeFiles/cmTC_e671a.dir/CMakeCCompilerABI.c.o /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed -lc /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /lib/x86_64-linux-gnu/crtn.o
-make[1]: Leaving directory '/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-LHpHKb'
+ "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/ld.lld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_48881 /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/../lib/x86_64-pc-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/lib -L/usr/lib -L/usr/local/cuda/lib64/stubs CMakeFiles/cmTC_48881.dir/CMakeCCompilerABI.c.o /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed -lc /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /lib/x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory '/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-rdBy63'
 
 
 
@@ -87,12 +87,12 @@ Parsed C implicit include dir info from above output: rv=done
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld\.lld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-LHpHKb]
+  ignore line: [Change Dir: /content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-rdBy63]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/make -f Makefile cmTC_e671a/fast && /usr/bin/make  -f CMakeFiles/cmTC_e671a.dir/build.make CMakeFiles/cmTC_e671a.dir/build]
-  ignore line: [make[1]: Entering directory '/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-LHpHKb']
-  ignore line: [Building C object CMakeFiles/cmTC_e671a.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang   -v -MD -MT CMakeFiles/cmTC_e671a.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_e671a.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_e671a.dir/CMakeCCompilerABI.c.o -c /usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.25/Modules/CMakeCCompilerABI.c]
+  ignore line: [Run Build Command(s):/usr/bin/make -f Makefile cmTC_48881/fast && /usr/bin/make  -f CMakeFiles/cmTC_48881.dir/build.make CMakeFiles/cmTC_48881.dir/build]
+  ignore line: [make[1]: Entering directory '/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-rdBy63']
+  ignore line: [Building C object CMakeFiles/cmTC_48881.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang   -v -MD -MT CMakeFiles/cmTC_48881.dir/CMakeCCompilerABI.c.o -MF CMakeFiles/cmTC_48881.dir/CMakeCCompilerABI.c.o.d -o CMakeFiles/cmTC_48881.dir/CMakeCCompilerABI.c.o -c /usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.25/Modules/CMakeCCompilerABI.c]
   ignore line: [clang version 15.0.7 (https://github.com/shacklettbp/madrona-toolchain.git c02ecebf9b998a784f5eafaf042c90633b8bd56b)]
   ignore line: [Target: x86_64-pc-linux-gnu]
   ignore line: [Thread model: posix]
@@ -105,7 +105,7 @@ Parsed C implicit link information from above output:
   ignore line: [@m64]
   ignore line: [Found CUDA installation: /usr/local/cuda-12.1  version ]
   ignore line: [ (in-process)]
-  ignore line: [ "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang-15" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-LHpHKb -resource-dir /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7 -dependency-file CMakeFiles/cmTC_e671a.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_e671a.dir/CMakeCCompilerABI.c.o -sys-header-deps -internal-isystem /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdebug-compilation-dir=/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-LHpHKb -ferror-limit 19 -fgnuc-version=4.2.1 -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_e671a.dir/CMakeCCompilerABI.c.o -x c /usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.25/Modules/CMakeCCompilerABI.c]
+  ignore line: [ "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang-15" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-rdBy63 -resource-dir /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7 -dependency-file CMakeFiles/cmTC_48881.dir/CMakeCCompilerABI.c.o.d -MT CMakeFiles/cmTC_48881.dir/CMakeCCompilerABI.c.o -sys-header-deps -internal-isystem /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdebug-compilation-dir=/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-rdBy63 -ferror-limit 19 -fgnuc-version=4.2.1 -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_48881.dir/CMakeCCompilerABI.c.o -x c /usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.25/Modules/CMakeCCompilerABI.c]
   ignore line: [clang -cc1 version 15.0.7 based upon LLVM 15.0.7 default target x86_64-pc-linux-gnu]
   ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include"]
   ignore line: [ignoring nonexistent directory "/include"]
@@ -116,9 +116,9 @@ Parsed C implicit link information from above output:
   ignore line: [ /usr/include/x86_64-linux-gnu]
   ignore line: [ /usr/include]
   ignore line: [End of search list.]
-  ignore line: [Linking C executable cmTC_e671a]
-  ignore line: [/usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e671a.dir/link.txt --verbose=1]
-  ignore line: [/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang  -v CMakeFiles/cmTC_e671a.dir/CMakeCCompilerABI.c.o -o cmTC_e671a ]
+  ignore line: [Linking C executable cmTC_48881]
+  ignore line: [/usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_48881.dir/link.txt --verbose=1]
+  ignore line: [/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang  -v CMakeFiles/cmTC_48881.dir/CMakeCCompilerABI.c.o -o cmTC_48881 ]
   ignore line: [clang version 15.0.7 (https://github.com/shacklettbp/madrona-toolchain.git c02ecebf9b998a784f5eafaf042c90633b8bd56b)]
   ignore line: [Target: x86_64-pc-linux-gnu]
   ignore line: [Thread model: posix]
@@ -130,7 +130,7 @@ Parsed C implicit link information from above output:
   ignore line: [Selected multilib: .]
   ignore line: [@m64]
   ignore line: [Found CUDA installation: /usr/local/cuda-12.1  version ]
-  link line: [ "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/ld.lld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_e671a /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/../lib/x86_64-pc-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/lib -L/usr/lib -L/usr/local/cuda/lib64/stubs CMakeFiles/cmTC_e671a.dir/CMakeCCompilerABI.c.o /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed -lc /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /lib/x86_64-linux-gnu/crtn.o]
+  link line: [ "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/ld.lld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_48881 /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/../lib/x86_64-pc-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/lib -L/usr/lib -L/usr/local/cuda/lib64/stubs CMakeFiles/cmTC_48881.dir/CMakeCCompilerABI.c.o /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed -lc /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /lib/x86_64-linux-gnu/crtn.o]
     arg [/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/ld.lld] ==> ignore
     arg [-pie] ==> ignore
     arg [-zrelro] ==> ignore
@@ -141,7 +141,7 @@ Parsed C implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_e671a] ==> ignore
+    arg [cmTC_48881] ==> ignore
     arg [/lib/x86_64-linux-gnu/Scrt1.o] ==> obj [/lib/x86_64-linux-gnu/Scrt1.o]
     arg [/lib/x86_64-linux-gnu/crti.o] ==> obj [/lib/x86_64-linux-gnu/crti.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o]
@@ -155,7 +155,7 @@ Parsed C implicit link information from above output:
     arg [-L/lib] ==> dir [/lib]
     arg [-L/usr/lib] ==> dir [/usr/lib]
     arg [-L/usr/local/cuda/lib64/stubs] ==> dir [/usr/local/cuda/lib64/stubs]
-    arg [CMakeFiles/cmTC_e671a.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_48881.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a] ==> lib [/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a]
     arg [--as-needed] ==> ignore
     arg [-lunwind] ==> lib [unwind]
@@ -186,12 +186,12 @@ Parsed C implicit link information from above output:
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-tsg4Wc
+Change Dir: /content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-91vJQ2
 
-Run Build Command(s):/usr/bin/make -f Makefile cmTC_ad4b8/fast && /usr/bin/make  -f CMakeFiles/cmTC_ad4b8.dir/build.make CMakeFiles/cmTC_ad4b8.dir/build
-make[1]: Entering directory '/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-tsg4Wc'
-Building CXX object CMakeFiles/cmTC_ad4b8.dir/CMakeCXXCompilerABI.cpp.o
-/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang++ -nostdlib++   -v -MD -MT CMakeFiles/cmTC_ad4b8.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_ad4b8.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_ad4b8.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_3e2c9/fast && /usr/bin/make  -f CMakeFiles/cmTC_3e2c9.dir/build.make CMakeFiles/cmTC_3e2c9.dir/build
+make[1]: Entering directory '/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-91vJQ2'
+Building CXX object CMakeFiles/cmTC_3e2c9.dir/CMakeCXXCompilerABI.cpp.o
+/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang++ -nostdlib++   -v -MD -MT CMakeFiles/cmTC_3e2c9.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_3e2c9.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_3e2c9.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp
 clang version 15.0.7 (https://github.com/shacklettbp/madrona-toolchain.git c02ecebf9b998a784f5eafaf042c90633b8bd56b)
 Target: x86_64-pc-linux-gnu
 Thread model: posix
@@ -202,7 +202,7 @@ Candidate multilib: .;@m64
 Selected multilib: .;@m64
 Found CUDA installation: /usr/local/cuda-12.1, version 
  (in-process)
- "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang-15" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-tsg4Wc -resource-dir /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7 -dependency-file CMakeFiles/cmTC_ad4b8.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_ad4b8.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -internal-isystem /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -fdebug-compilation-dir=/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-tsg4Wc -ferror-limit 19 -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_ad4b8.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp
+ "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang-15" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-91vJQ2 -resource-dir /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7 -dependency-file CMakeFiles/cmTC_3e2c9.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_3e2c9.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -internal-isystem /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -fdebug-compilation-dir=/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-91vJQ2 -ferror-limit 19 -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_3e2c9.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp
 clang -cc1 version 15.0.7 based upon LLVM 15.0.7 default target x86_64-pc-linux-gnu
 ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include"
 ignoring nonexistent directory "/include"
@@ -213,9 +213,9 @@ ignoring nonexistent directory "/include"
  /usr/include/x86_64-linux-gnu
  /usr/include
 End of search list.
-Linking CXX executable cmTC_ad4b8
-/usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ad4b8.dir/link.txt --verbose=1
-/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang++ -nostdlib++  -v CMakeFiles/cmTC_ad4b8.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_ad4b8 
+Linking CXX executable cmTC_3e2c9
+/usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3e2c9.dir/link.txt --verbose=1
+/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang++ -nostdlib++  -v CMakeFiles/cmTC_3e2c9.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_3e2c9 
 clang version 15.0.7 (https://github.com/shacklettbp/madrona-toolchain.git c02ecebf9b998a784f5eafaf042c90633b8bd56b)
 Target: x86_64-pc-linux-gnu
 Thread model: posix
@@ -225,8 +225,8 @@ Selected GCC installation: /usr/lib/gcc/x86_64-linux-gnu/9
 Candidate multilib: .;@m64
 Selected multilib: .;@m64
 Found CUDA installation: /usr/local/cuda-12.1, version 
- "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/ld.lld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_ad4b8 /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/../lib/x86_64-pc-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/lib -L/usr/lib -L/usr/local/cuda/lib64/stubs CMakeFiles/cmTC_ad4b8.dir/CMakeCXXCompilerABI.cpp.o -lm /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed -lc /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /lib/x86_64-linux-gnu/crtn.o
-make[1]: Leaving directory '/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-tsg4Wc'
+ "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/ld.lld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_3e2c9 /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/../lib/x86_64-pc-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/lib -L/usr/lib -L/usr/local/cuda/lib64/stubs CMakeFiles/cmTC_3e2c9.dir/CMakeCXXCompilerABI.cpp.o -lm /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed -lc /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /lib/x86_64-linux-gnu/crtn.o
+make[1]: Leaving directory '/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-91vJQ2'
 
 
 
@@ -247,12 +247,12 @@ Parsed CXX implicit include dir info from above output: rv=done
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld\.lld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-tsg4Wc]
+  ignore line: [Change Dir: /content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-91vJQ2]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/make -f Makefile cmTC_ad4b8/fast && /usr/bin/make  -f CMakeFiles/cmTC_ad4b8.dir/build.make CMakeFiles/cmTC_ad4b8.dir/build]
-  ignore line: [make[1]: Entering directory '/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-tsg4Wc']
-  ignore line: [Building CXX object CMakeFiles/cmTC_ad4b8.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang++ -nostdlib++   -v -MD -MT CMakeFiles/cmTC_ad4b8.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_ad4b8.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_ad4b8.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Run Build Command(s):/usr/bin/make -f Makefile cmTC_3e2c9/fast && /usr/bin/make  -f CMakeFiles/cmTC_3e2c9.dir/build.make CMakeFiles/cmTC_3e2c9.dir/build]
+  ignore line: [make[1]: Entering directory '/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-91vJQ2']
+  ignore line: [Building CXX object CMakeFiles/cmTC_3e2c9.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang++ -nostdlib++   -v -MD -MT CMakeFiles/cmTC_3e2c9.dir/CMakeCXXCompilerABI.cpp.o -MF CMakeFiles/cmTC_3e2c9.dir/CMakeCXXCompilerABI.cpp.o.d -o CMakeFiles/cmTC_3e2c9.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp]
   ignore line: [clang version 15.0.7 (https://github.com/shacklettbp/madrona-toolchain.git c02ecebf9b998a784f5eafaf042c90633b8bd56b)]
   ignore line: [Target: x86_64-pc-linux-gnu]
   ignore line: [Thread model: posix]
@@ -265,7 +265,7 @@ Parsed CXX implicit link information from above output:
   ignore line: [@m64]
   ignore line: [Found CUDA installation: /usr/local/cuda-12.1  version ]
   ignore line: [ (in-process)]
-  ignore line: [ "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang-15" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-tsg4Wc -resource-dir /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7 -dependency-file CMakeFiles/cmTC_ad4b8.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_ad4b8.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -internal-isystem /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -fdebug-compilation-dir=/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-tsg4Wc -ferror-limit 19 -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_ad4b8.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [ "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang-15" -cc1 -triple x86_64-pc-linux-gnu -emit-obj -mrelax-all --mrelax-relocations -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -pic-is-pie -mframe-pointer=all -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -funwind-tables=2 -target-cpu x86-64 -tune-cpu generic -mllvm -treat-scalable-fixed-error-as-warning -debugger-tuning=gdb -v -fcoverage-compilation-dir=/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-91vJQ2 -resource-dir /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7 -dependency-file CMakeFiles/cmTC_3e2c9.dir/CMakeCXXCompilerABI.cpp.o.d -MT CMakeFiles/cmTC_3e2c9.dir/CMakeCXXCompilerABI.cpp.o -sys-header-deps -internal-isystem /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/include -internal-isystem /usr/local/include -internal-isystem /usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include -internal-externc-isystem /usr/include/x86_64-linux-gnu -internal-externc-isystem /include -internal-externc-isystem /usr/include -fdeprecated-macro -fdebug-compilation-dir=/content/madrona_rl_envs/build/CMakeFiles/CMakeScratch/TryCompile-91vJQ2 -ferror-limit 19 -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -faddrsig -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_3e2c9.dir/CMakeCXXCompilerABI.cpp.o -x c++ /usr/local/lib/python3.10/dist-packages/cmake/data/share/cmake-3.25/Modules/CMakeCXXCompilerABI.cpp]
   ignore line: [clang -cc1 version 15.0.7 based upon LLVM 15.0.7 default target x86_64-pc-linux-gnu]
   ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include"]
   ignore line: [ignoring nonexistent directory "/include"]
@@ -276,9 +276,9 @@ Parsed CXX implicit link information from above output:
   ignore line: [ /usr/include/x86_64-linux-gnu]
   ignore line: [ /usr/include]
   ignore line: [End of search list.]
-  ignore line: [Linking CXX executable cmTC_ad4b8]
-  ignore line: [/usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ad4b8.dir/link.txt --verbose=1]
-  ignore line: [/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang++ -nostdlib++  -v CMakeFiles/cmTC_ad4b8.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_ad4b8 ]
+  ignore line: [Linking CXX executable cmTC_3e2c9]
+  ignore line: [/usr/local/lib/python3.10/dist-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3e2c9.dir/link.txt --verbose=1]
+  ignore line: [/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/clang++ -nostdlib++  -v CMakeFiles/cmTC_3e2c9.dir/CMakeCXXCompilerABI.cpp.o -o cmTC_3e2c9 ]
   ignore line: [clang version 15.0.7 (https://github.com/shacklettbp/madrona-toolchain.git c02ecebf9b998a784f5eafaf042c90633b8bd56b)]
   ignore line: [Target: x86_64-pc-linux-gnu]
   ignore line: [Thread model: posix]
@@ -290,7 +290,7 @@ Parsed CXX implicit link information from above output:
   ignore line: [Selected multilib: .]
   ignore line: [@m64]
   ignore line: [Found CUDA installation: /usr/local/cuda-12.1  version ]
-  link line: [ "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/ld.lld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_ad4b8 /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/../lib/x86_64-pc-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/lib -L/usr/lib -L/usr/local/cuda/lib64/stubs CMakeFiles/cmTC_ad4b8.dir/CMakeCXXCompilerABI.cpp.o -lm /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed -lc /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /lib/x86_64-linux-gnu/crtn.o]
+  link line: [ "/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/ld.lld" -pie -z relro --hash-style=gnu --eh-frame-hdr -m elf_x86_64 -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_3e2c9 /lib/x86_64-linux-gnu/Scrt1.o /lib/x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/../lib/x86_64-pc-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib64 -L/lib/x86_64-linux-gnu -L/lib/../lib64 -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib64 -L/lib -L/usr/lib -L/usr/local/cuda/lib64/stubs CMakeFiles/cmTC_3e2c9.dir/CMakeCXXCompilerABI.cpp.o -lm /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed -lc /content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a --as-needed -lunwind --no-as-needed /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /lib/x86_64-linux-gnu/crtn.o]
     arg [/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/bin/ld.lld] ==> ignore
     arg [-pie] ==> ignore
     arg [-zrelro] ==> ignore
@@ -301,7 +301,7 @@ Parsed CXX implicit link information from above output:
     arg [-dynamic-linker] ==> ignore
     arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_ad4b8] ==> ignore
+    arg [cmTC_3e2c9] ==> ignore
     arg [/lib/x86_64-linux-gnu/Scrt1.o] ==> obj [/lib/x86_64-linux-gnu/Scrt1.o]
     arg [/lib/x86_64-linux-gnu/crti.o] ==> obj [/lib/x86_64-linux-gnu/crti.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o]
@@ -315,7 +315,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/lib] ==> dir [/lib]
     arg [-L/usr/lib] ==> dir [/usr/lib]
     arg [-L/usr/local/cuda/lib64/stubs] ==> dir [/usr/local/cuda/lib64/stubs]
-    arg [CMakeFiles/cmTC_ad4b8.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_3e2c9.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lm] ==> lib [m]
     arg [/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a] ==> lib [/content/madrona_rl_envs/external/madrona/external/madrona-toolchain/bundled-toolchain/toolchain/lib/clang/15.0.7/lib/x86_64-pc-linux-gnu/libclang_rt.builtins.a]
     arg [--as-needed] ==> ignore
