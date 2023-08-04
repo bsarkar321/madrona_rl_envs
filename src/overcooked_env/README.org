@@ -89,17 +89,32 @@ To test the baseline, run the following command.
   python overcooked_example.py --num-envs 32 --use-baseline
 #+end_src
 
-To test the madrona versions for cpu and gpu, run the following commands:
+To test the madrona versions for cpu and gpu on the standard cramped_room environment, run the following commands:
 #+begin_src bash
-  python overcooked_example.py --use-cpu --num-envs 32
-  MADRONA_MWGPU_KERNEL_CACHE=/tmp/overcache python overcooked_example.py --num-envs 32
+  python overcooked_isolated_example.py --use-cpu --num-envs 32
+  MADRONA_MWGPU_KERNEL_CACHE=/tmp/overcache python overcooked_isolated_example.py --num-envs 32
 #+end_src
 
 When testing using 8 cores of an AMD EPYC 7402 Processor, an A40 GPU, and 64 GB RAM, I get the following performance numbers in the cramped_room environment:
 | num-envs | baseline | madrona cpu | madrona gpu |
 |----------+----------+-------------+-------------|
-|       32 | 2100     |       84700 |      112000 |
-|      100 | 2000     |      164000 |      348000 |
-|     1000 | -        |      154000 |     2910000 |
-|    10000 | -        |      181000 |    13700000 |
-|   100000 | -        |           - |    14100000 |
+|       32 | 2100     |      128000 |      212000 |
+|      100 | 2000     |      242000 |      446000 |
+|     1000 | -        |      183000 |     2300000 |
+|    10000 | -        |      184000 |    10000000 |
+|   100000 | -        |           - |     9560000 |
+
+To test the madrona versions for cpu and gpu on the custom many_player_layout environment, run the following commands:
+#+begin_src bash
+  python overcooked_isolated_example.py --use-cpu --layout many_player_layout.layout --num-envs 1000 --num-players 2
+  MADRONA_MWGPU_KERNEL_CACHE=/tmp/overcache python overcooked_isolated_example.py --layout many_player_layout.layout --num-envs 1000 --num-players 2
+#+end_src
+
+When testing using 8 cores of an AMD EPYC 7402 Processor, an A40 GPU, and 64 GB RAM, I get the following performance numbers in the cramped_room environment:
+| num-players | madrona cpu | madrona gpu |
+|-------------+-------------+-------------|
+|           2 |       18100 |      235000 |
+|           4 |        9300 |      127000 |
+|           8 |        4800 |       59700 |
+|          16 |           - |       23100 |
+|          30 |           - |        7600 |

@@ -98,10 +98,6 @@ namespace Overcooked {
     uint8_t recipe_values[NUM_RECIPES];
     uint8_t recipe_times[NUM_RECIPES];
     int64_t horizon;
-
-    madrona::Atomic<int32_t> calculated_reward;
-
-    madrona::Atomic<bool> should_update_pos;
   };
 
   struct ActiveAgent {
@@ -111,10 +107,6 @@ namespace Overcooked {
   struct Action {
     ActionT choice; // 6 discrete choices
   };
-
-  // struct Observation {
-  //     int32_t x[MAX_SIZE * (5 * MAX_NUM_PLAYERS + 16)];
-  // };
 
   struct PotInfo {
     int32_t id;
@@ -150,8 +142,6 @@ namespace Overcooked {
     uint8_t position, orientation;
     uint8_t proposed_position, proposed_orientation;
     Object held_object;
-
-    int8_t interaction_index; // SET
 
     bool has_object() { return held_object.name != ObjectT::NONE; }
     Object& get_object() { return held_object; }

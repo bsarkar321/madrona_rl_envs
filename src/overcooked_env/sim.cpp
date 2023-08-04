@@ -65,101 +65,94 @@ namespace Overcooked {
     return soup.cooking_tick >= 0 && soup.cooking_tick >= get_time(ws, soup);
   }
 
-  inline void observationSystem(Engine &ctx, LocationXObservation &obs, LocationXID &id)
+  inline void observationSystem(Engine &ctx, AgentID &id)
   {
     WorldState &ws = ctx.singleton<WorldState>();
 
-    int32_t loc = id.id % (ws.size);
-    int32_t current_player = id.id / (ws.size);
-        
     int32_t shift = 5 * ws.num_players;
-    LocationData &dat = ctx.get<LocationData>(ctx.data().locations[loc]);
-    Object &obj = dat.object;
+    int32_t current_player = id.id;
 
-    if (ws.horizon - ws.timestep < 40) {
-      obs.x[shift + 15] = 1;
-    } else {
-      obs.x[shift + 15] = 0;
-    }
+    for (int loc = 0; loc < ws.size; loc++) {
+      LocationXObservation &obs = ctx.get<LocationXObservation>(ctx.data().locationXplayers[current_player * ws.size + loc]);
+      LocationData &dat = ctx.get<LocationData>(ctx.data().locations[loc]);
+      Object &obj = dat.object;
+      if (ws.horizon - ws.timestep < 40) {
+	obs.x[shift + 15] = 1;
+      } else {
+	obs.x[shift + 15] = 0;
+      }
+
+      for (int to_reset = 0; to_reset < shift; to_reset++) {
+	obs.x[to_reset] = 0;
+      }
         
-    obs.x[shift + 6] = 0;
-    obs.x[shift + 7] = 0;
-    obs.x[shift + 8] = 0;
-    obs.x[shift + 9] = 0;
-    obs.x[shift + 10] = 0;
-    obs.x[shift + 11] = 0;
-    obs.x[shift + 12] = 0;
-    obs.x[shift + 13] = 0;
-    obs.x[shift + 14] = 0;
+      obs.x[shift + 6] = 0;
+      obs.x[shift + 7] = 0;
+      obs.x[shift + 8] = 0;
+      obs.x[shift + 9] = 0;
+      obs.x[shift + 10] = 0;
+      obs.x[shift + 11] = 0;
+      obs.x[shift + 12] = 0;
+      obs.x[shift + 13] = 0;
+      obs.x[shift + 14] = 0;
 
-    if (obj.name == ObjectT::SOUP) {
-      if (dat.terrain == TerrainT::POT) {
-	if (obj.cooking_tick < 0) {
-	  obs.x[shift + 6] = obj.num_onions;
-	  obs.x[shift + 7] = obj.num_tomatoes;
+      if (obj.name == ObjectT::SOUP) {
+	if (dat.terrain == TerrainT::POT) {
+	  if (obj.cooking_tick < 0) {
+	    obs.x[shift + 6] = obj.num_onions;
+	    obs.x[shift + 7] = obj.num_tomatoes;
+	  } else {
+	    obs.x[shift + 8] = obj.num_onions;
+	    obs.x[shift + 9] = obj.num_tomatoes;
+	    obs.x[shift + 10] = get_time(ws, obj) - obj.cooking_tick;
+	    if (is_ready(ws, obj)) {
+	      obs.x[shift + 11] = 1;
+	    }
+	  }
 	} else {
 	  obs.x[shift + 8] = obj.num_onions;
 	  obs.x[shift + 9] = obj.num_tomatoes;
-	  obs.x[shift + 10] = get_time(ws, obj) - obj.cooking_tick;
-	  if (is_ready(ws, obj)) {
-	    obs.x[shift + 11] = 1;
-	  }
-	}
-      } else {
-	obs.x[shift + 8] = obj.num_onions;
-	obs.x[shift + 9] = obj.num_tomatoes;
-	obs.x[shift + 10] = 0;
-	obs.x[shift + 11] = 1;
-      }
-    } else if (obj.name == ObjectT::DISH) {
-      obs.x[shift + 12] = 1;
-    } else if (obj.name == ObjectT::ONION) {
-      obs.x[shift + 13] = 1;
-    } else if (obj.name == ObjectT::TOMATO) {
-      obs.x[shift + 14] = 1;
-    }
-
-    if (dat.past_player != -1) {
-      int32_t relative_player;
-      if (dat.past_player == current_player) {
-	relative_player = 0;
-      } else if (dat.past_player < current_player) {
-	relative_player = dat.past_player + 1;
-      } else {
-	relative_player = dat.past_player;
-      }
-
-      obs.x[relative_player] = 0;
-      obs.x[ws.num_players + 4 * relative_player + dat.past_orientation] = 0;
-    }
-
-    if (dat.current_player != -1) {
-      int other_player = dat.current_player;
-      int i;
-      if (other_player == current_player) {
-	i = 0;
-      } else if (other_player < current_player) {
-	i = other_player + 1;
-      } else {
-	i = other_player;
-      }
-      PlayerState &ps = ctx.get<PlayerState>(ctx.data().agents[other_player]);
-
-      obs.x[i] = 1;
-      obs.x[ws.num_players + 4 * i + ps.orientation] = 1;
-
-      if (ps.has_object()) {
-	Object &obj2 = ps.get_object();
-	if (obj2.name == ObjectT::SOUP) {
-	  obs.x[shift + 8] = obj2.num_onions;
-	  obs.x[shift + 9] = obj2.num_tomatoes;
 	  obs.x[shift + 10] = 0;
 	  obs.x[shift + 11] = 1;
-	} else if (obj2.name == ObjectT::DISH) {
+	}
+      } else if (obj.name == ObjectT::DISH) {
+	obs.x[shift + 12] = 1;
+      } else if (obj.name == ObjectT::ONION) {
+	obs.x[shift + 13] = 1;
+      } else if (obj.name == ObjectT::TOMATO) {
+	obs.x[shift + 14] = 1;
+      }
+    }
+
+    int other_i = 1;
+    for (int i = 0; i < ws.num_players; i++) {
+      PlayerState &ps = ctx.get<PlayerState>(ctx.data().agents[i]);
+
+      int32_t pos = ps.position;
+
+      LocationXObservation &obs = ctx.get<LocationXObservation>(ctx.data().locationXplayers[current_player * ws.size + pos]);
+        
+      if (i == id.id) {
+	obs.x[0] = 1;
+	obs.x[ws.num_players + ps.orientation] = 1;
+      } else {
+	obs.x[other_i] = 1;
+	obs.x[ws.num_players + 4 * other_i + ps.orientation] = 1;
+	other_i++;
+      }
+
+      if (ps.has_object()) {
+	Object &obj = ps.get_object();
+	if (obj.name == ObjectT::SOUP) {
+	  obs.x[shift + 8] = obj.num_onions;
+	  obs.x[shift + 9] = obj.num_tomatoes;
+	  obs.x[shift + 10] = 0;
+	  obs.x[shift + 11] = 1;
+	} else if (obj.name == ObjectT::DISH) {
 	  obs.x[shift + 12] = 1;
-	} else if (obj2.name == ObjectT::ONION) {
+	} else if (obj.name == ObjectT::ONION) {
 	  obs.x[shift + 13] = 1;
-	} else if (obj2.name == ObjectT::TOMATO) {
+	} else if (obj.name == ObjectT::TOMATO) {
 	  obs.x[shift + 14] = 1;
 	}
       }
@@ -196,101 +189,20 @@ namespace Overcooked {
     return point;
   }
 
-  // REQUIRES: nothing
-  // MODIFIES: WorldState.calculated_reward
-  inline void pre_resolve_interacts(Engine &, WorldState &ws)
+  inline void resolve_interacts(Engine &ctx, WorldState &ws)
   {
-    ws.calculated_reward.store_relaxed(0);
-  }
-
-  // REQUIRES: reset WorldState.calculated_reward, LocationData.num_interacting_players, original player.position, orientation, held_object
-  // MODIFIES: LocationData.num_interacting_players, LocationData.interacting_players, player.held_object, ws.calculated_reward
-  inline void resolve_interacts(Engine &ctx, PlayerState &player, AgentID &id, Action &action)
-  {
-    int i = id.id;
-
-    player.interaction_index = -1;
-
-    if (action.choice != ActionT::INTERACT) {
-      return;
-    }
-
-    WorldState &ws = ctx.singleton<WorldState>();
-
-    int32_t pos = player.position;
-    int32_t o = player.orientation;
-
-    int32_t i_pos = move_in_direction(pos, o, ws.width);
-
-    LocationData &dat = ctx.get<LocationData>(ctx.data().locations[i_pos]);
-
-    TerrainT terrain_type = dat.terrain;
-
-    if (terrain_type == TerrainT::COUNTER) {
-      int player_loc_idx = dat.num_interacting_players.fetch_add_relaxed(1);
-      dat.interacting_players[player_loc_idx] = i;
-    } else if (terrain_type == TerrainT::ONION_SOURCE) {
-      if (player.held_object.name == ObjectT::NONE) {
-	player.held_object = { .name = ObjectT::ONION };
+    int rew = 0;
+    for (int i = 0; i < ws.num_players; i++) {
+      PlayerState &player = ctx.get<PlayerState>(ctx.data().agents[i]);
+      Action &action = ctx.get<Action>(ctx.data().agents[i]);
+      
+      if (action.choice != ActionT::INTERACT) {
+	continue;
       }
-    } else if (terrain_type == TerrainT::TOMATO_SOURCE) {
-      if (player.held_object.name == ObjectT::NONE) {
-	player.held_object = { .name = ObjectT::TOMATO };
-      }
-    } else if (terrain_type == TerrainT::DISH_SOURCE) {
-      if (player.held_object.name == ObjectT::NONE) {
-	player.held_object = { .name = ObjectT::DISH };
-      }
-    } else if (terrain_type == TerrainT::POT) {
-      int player_loc_idx = dat.num_interacting_players.fetch_add_relaxed(1);
-      dat.interacting_players[player_loc_idx] = i;
-    } else if (terrain_type == TerrainT::SERVING) {
-      if (player.has_object()) {
-	Object obj = player.get_object();
-	if (obj.name == ObjectT::SOUP) {
-	  ws.calculated_reward.fetch_add_relaxed(deliver_soup(ws, player, obj));
-	}
-      }
-    }
-  }
-
-  // REQUIRES: original player.position, orientation, held_object
-  // MODIFIES: player.interaction_index
-  inline void setup_interact_time(Engine &ctx, PlayerState &ps, AgentID &id, Action &action)
-  {
-    if (action.choice != ActionT::INTERACT) {
-      return;
-    }
-    WorldState &ws = ctx.singleton<WorldState>();
-
-    int32_t pos = ps.position;
-    int32_t o = ps.orientation;
-    
-    int32_t i_pos = move_in_direction(pos, o, ws.width);
-    LocationData &dat = ctx.get<LocationData>(ctx.data().locations[i_pos]);
-    TerrainT terrain_type = dat.terrain;
-    if (terrain_type == TerrainT::COUNTER || terrain_type == TerrainT::POT) {
-      ps.interaction_index = 0;
-      // max of 4
-      int num_int_players = dat.num_interacting_players.load_relaxed();
-      for (int i = 0; i < num_int_players; i++) {
-	if (dat.interacting_players[i] < id.id) {
-	  ps.interaction_index++;
-	}
-      }
-    }
-  }
-
-  // REQUIRES: player.interaction_index, original position, orientation, held_object
-  // MODIFIES: LocationData.object, player.held_object, ws.calculated_reward
-  inline void do_counter_pot_interaction(Engine &ctx, PlayerState &player, int iternum)
-  {
-    if (player.interaction_index == iternum) {
-      WorldState &ws = ctx.singleton<WorldState>();
 
       int32_t pos = player.position;
       int32_t o = player.orientation;
-    
+
       int32_t i_pos = move_in_direction(pos, o, ws.width);
       TerrainT terrain_type = ctx.get<LocationData>(ctx.data().locations[i_pos]).terrain;
 
@@ -303,25 +215,33 @@ namespace Overcooked {
 	  player.set_object(soup);
 	  soup = { .name = ObjectT::NONE };
 	}
+      } else if (terrain_type == TerrainT::ONION_SOURCE) {
+	if (player.held_object.name == ObjectT::NONE) {
+	  player.held_object = { .name = ObjectT::ONION };
+	}
+      } else if (terrain_type == TerrainT::TOMATO_SOURCE) {
+	if (player.held_object.name == ObjectT::NONE) {
+	  player.held_object = { .name = ObjectT::TOMATO };
+	}
+      } else if (terrain_type == TerrainT::DISH_SOURCE) {
+	if (player.held_object.name == ObjectT::NONE) {
+	  player.held_object = { .name = ObjectT::DISH };
+	}
       } else if (terrain_type == TerrainT::POT) {
 	if (!player.has_object()) {
-	  // order doesn't matter if soup_to_be_cooked_at_location
 	  if (soup_to_be_cooked_at_location(ws, soup)) {
 	    soup.cooking_tick = 0;
 	  }
 	} else {
 	  if (player.get_object().name == ObjectT::DISH && soup_ready_at_location(ws, soup)) {
-	    // order matters, only agent with lowest index can take soup
 	    player.set_object(soup);
 	    soup = { .name = ObjectT::NONE };
-	    ws.calculated_reward.fetch_add_relaxed(ws.soup_pickup_rew);
+	    rew += ws.soup_pickup_rew;
 	  } else if (player.get_object().name == ObjectT::ONION || player.get_object().name == ObjectT::TOMATO) {
-	    // order matters, only some agents can actually add to pot
 	    if (soup.name == ObjectT::NONE) {
 	      soup = { .name = ObjectT::SOUP };
 	    }
 
-	    // Object &soup = soup;
 	    if (!(soup.cooking_tick >= 0 || soup.num_ingredients() == MAX_NUM_INGREDIENTS)) {
 	      Object obj = player.remove_object();
 	      if (obj.name == ObjectT::ONION) {
@@ -329,38 +249,30 @@ namespace Overcooked {
 	      } else {
 		soup.num_tomatoes++;
 	      }
-	      ws.calculated_reward.fetch_add_relaxed(ws.placement_in_pot_rew);
+	      rew += ws.placement_in_pot_rew;
 	    }
 	  }
 	}
+      } else if (terrain_type == TerrainT::SERVING) {
+	if (player.has_object()) {
+	  Object obj = player.get_object();
+	  if (obj.name == ObjectT::SOUP) {
+	    rew += deliver_soup(ws, player, obj);
+	  }
+	}
       }
+
+    }
+
+    for (int i = 0; i < ws.num_players; i++) {
+      Reward &reward = ctx.get<Reward>(ctx.data().agents[i]);
+      reward.rew = rew;
     }
   }
 
-  inline void do_counter_pot_int0(Engine &ctx, PlayerState &player)
-  {
-    do_counter_pot_interaction(ctx, player, 0);
-  }
-
-  inline void do_counter_pot_int1(Engine &ctx, PlayerState &player)
-  {
-    do_counter_pot_interaction(ctx, player, 1);
-  }
-
-  inline void do_counter_pot_int2(Engine &ctx, PlayerState &player)
-  {
-    do_counter_pot_interaction(ctx, player, 2);
-  }
-
-  inline void do_counter_pot_int3(Engine &ctx, PlayerState &player)
-  {
-    do_counter_pot_interaction(ctx, player, 3);
-  }
-
-
   // REQUIRES: original player position, orientation
   // MODIFIES: proposed position, orientation, LocationData future_player
-  inline void _move_if_direction(Engine &ctx, PlayerState &ps, Action &action, AgentID &id)
+  inline void _move_if_direction(Engine &ctx, PlayerState &ps, Action &action)
   {
     if (action.choice == ActionT::INTERACT) {
       ps.propose_pos_and_or(ps.position, ps.orientation);
@@ -374,56 +286,76 @@ namespace Overcooked {
       TerrainT terrain_type = ctx.get<LocationData>(ctx.data().locations[new_pos]).terrain;
       ps.propose_pos_and_or((terrain_type != TerrainT::AIR ? ps.position : new_pos), new_orientation);
     }
-
-    ctx.get<LocationData>(ctx.data().locations[ps.proposed_position]).future_player.store_relaxed(id.id);
   }
 
-  // REQUIRES: proposed_position, unmodified position
-  // MODIFIES: ws.should_update_pos
-  inline void _check_collisions(Engine &ctx, PlayerState &ps, AgentID &id)
-  {
-    WorldState &ws = ctx.singleton<WorldState>();
+  // // REQUIRES: proposed_position, unmodified position
+  // // MODIFIES: ws.should_update_pos
+  // inline void _check_collisions(Engine &ctx, PlayerState &ps, AgentID &id)
+  // {
+  //   WorldState &ws = ctx.singleton<WorldState>();
 
-    LocationData &origloc = ctx.get<LocationData>(ctx.data().locations[ps.position]);
-    LocationData &proploc = ctx.get<LocationData>(ctx.data().locations[ps.proposed_position]);
+  //   LocationData &origloc = ctx.get<LocationData>(ctx.data().locations[ps.position]);
+  //   LocationData &proploc = ctx.get<LocationData>(ctx.data().locations[ps.proposed_position]);
 
-    int comp_id = proploc.current_player;
+  //   int comp_id = proploc.current_player;
         
-    if (proploc.future_player.load_relaxed() != id.id ||
-	(comp_id != -1 && comp_id != id.id && origloc.future_player.load_relaxed() == comp_id)) {
-      ws.should_update_pos.store_relaxed(false);
+  //   if (proploc.future_player.load_relaxed() != id.id ||
+  // 	(comp_id != -1 && comp_id != id.id && origloc.future_player.load_relaxed() == comp_id)) {
+  //     ws.should_update_pos.store_relaxed(false);
+  //   }
+  // }
+
+  // // REQUIRES: proposed_position, unmodified position
+  // // MODIFIES: current_player and future_player of LocationData
+  // inline void _unset_loc_info(Engine &ctx, PlayerState &ps, AgentID &id)
+  // {
+  //   // WorldState &ws = ctx.singleton<WorldState>();
+        
+  //   ctx.get<LocationData>(ctx.data().locations[ps.position]).current_player = -1;
+  //   ctx.get<LocationData>(ctx.data().locations[ps.proposed_position]).future_player.store_relaxed(-1);
+
+  //   // update relevant portions of obs
+  //   // LocationObservation &obs = ctx.get<LocationObservation>(ctx.data().locations[ps.position]);
+  //   // obs.x[id.id] = 0;
+  //   // obs.x[ws.num_players + 4 * id.id + ps.orientation] = 0;
+  //   ctx.get<LocationData>(ctx.data().locations[ps.position]).past_player = id.id;
+  //   ctx.get<LocationData>(ctx.data().locations[ps.position]).past_orientation = ps.orientation;
+  // }
+
+  inline void _handle_collisions(Engine &ctx, WorldState &ws)
+  {
+    for (int idx0 = 0; idx0 < ws.num_players; idx0++) {
+      for (int idx1 = idx0+1; idx1 < ws.num_players; idx1++) {
+	PlayerState &ps0 = ctx.get<PlayerState>(ctx.data().agents[idx0]);
+	PlayerState &ps1 = ctx.get<PlayerState>(ctx.data().agents[idx1]);
+
+	if (ps0.proposed_position == ps1.proposed_position ||
+	    (ps0.proposed_position == ps1.position && ps1.proposed_position == ps0.position)) {
+	  for (int i = 0; i < ws.num_players; i++) {
+	    ctx.get<PlayerState>(ctx.data().agents[i]).update_or();
+	  }
+	  return;
+	}
+      }
+    }
+
+    for (int i = 0; i < ws.num_players; i++) {
+      ctx.get<PlayerState>(ctx.data().agents[i]).update_pos_and_or();
     }
   }
 
-  // REQUIRES: proposed_position, unmodified position
-  // MODIFIES: current_player and future_player of LocationData
-  inline void _unset_loc_info(Engine &ctx, PlayerState &ps, AgentID &id)
-  {
-    // WorldState &ws = ctx.singleton<WorldState>();
-        
-    ctx.get<LocationData>(ctx.data().locations[ps.position]).current_player = -1;
-    ctx.get<LocationData>(ctx.data().locations[ps.proposed_position]).future_player.store_relaxed(-1);
-
-    // update relevant portions of obs
-    // LocationObservation &obs = ctx.get<LocationObservation>(ctx.data().locations[ps.position]);
-    // obs.x[id.id] = 0;
-    // obs.x[ws.num_players + 4 * id.id + ps.orientation] = 0;
-    ctx.get<LocationData>(ctx.data().locations[ps.position]).past_player = id.id;
-    ctx.get<LocationData>(ctx.data().locations[ps.position]).past_orientation = ps.orientation;
-  }
-
-  // REQUIRES: proposed_position, unmodified position, reset current_player of new Location
-  // MODIFIES: player position and orientation
-  inline void _handle_collisions(Engine &ctx, PlayerState &ps, AgentID &id)
-  {
-    if (ctx.singleton<WorldState>().should_update_pos.load_relaxed()) {
-      ps.update_pos_and_or();
-    } else {
-      ps.update_or();
-    }
-    int new_pos = ps.position;
-    ctx.get<LocationData>(ctx.data().locations[new_pos]).current_player = id.id;
-  }
+  // // REQUIRES: proposed_position, unmodified position, reset current_player of new Location
+  // // MODIFIES: player position and orientation
+  // inline void _handle_collisions(Engine &ctx, PlayerState &ps, AgentID &id)
+  // {
+  //   if (ctx.singleton<WorldState>().should_update_pos.load_relaxed()) {
+  //     ps.update_pos_and_or();
+  //   } else {
+  //     ps.update_or();
+  //   }
+  //   int new_pos = ps.position;
+  //   ctx.get<LocationData>(ctx.data().locations[new_pos]).current_player = id.id;
+  // }
 
   // REQUIRES: finished interactions
   // MODIFIES: cooking_tick of pots
@@ -437,42 +369,61 @@ namespace Overcooked {
     }
   }
 
-  // MODIFIES: should_update_pos and timestep
-  inline void _reset_world_system(Engine &ctx, WorldState &ws)
-  {
-    ws.should_update_pos.store_relaxed(true);
-    if (ctx.singleton<WorldReset>().resetNow) {
-      ws.timestep = 0;
-    }
-  }
+  // // MODIFIES: should_update_pos and timestep
+  // inline void _reset_world_system(Engine &ctx, WorldState &ws)
+  // {
+  //   ws.should_update_pos.store_relaxed(true);
+  //   if (ctx.singleton<WorldReset>().resetNow) {
+  //     ws.timestep = 0;
+  //   }
+  // }
 
-  // MODIFIES: num_interacting_players and object
-  inline void _reset_objects_system(Engine &ctx, LocationData &dat)
-  {
-    dat.num_interacting_players.store_relaxed(0);
-    if (ctx.singleton<WorldReset>().resetNow) {
-      dat.object = { .name = ObjectT::NONE };
-    }
-  }
+  // // MODIFIES: num_interacting_players and object
+  // inline void _reset_objects_system(Engine &ctx, LocationData &dat)
+  // {
+  //   dat.num_interacting_players.store_relaxed(0);
+  //   if (ctx.singleton<WorldReset>().resetNow) {
+  //     dat.object = { .name = ObjectT::NONE };
+  //   }
+  // }
 
-  // MODIFIES: current_player for locations
-  inline void _pre_reset_actors_system(Engine &ctx, PlayerState &p)
-  {
-    if (ctx.singleton<WorldReset>().resetNow) {
-      ctx.get<LocationData>(ctx.data().locations[p.position]).current_player = -1;
-    }
-  }
+  // // MODIFIES: current_player for locations
+  // inline void _pre_reset_actors_system(Engine &ctx, PlayerState &p)
+  // {
+  //   if (ctx.singleton<WorldReset>().resetNow) {
+  //     ctx.get<LocationData>(ctx.data().locations[p.position]).current_player = -1;
+  //   }
+  // }
 
-  // REQUIRES: current_player is reset for all locations
-  // MODIFIES: current_player, agent rew, all agent properties
-  inline void _reset_actors_system(Engine &ctx, PlayerState &p, AgentID &id)
+  // // REQUIRES: current_player is reset for all locations
+  // // MODIFIES: current_player, agent rew, all agent properties
+  // inline void _reset_actors_system(Engine &ctx, PlayerState &p, AgentID &id)
+  // {
+  //   WorldState &ws = ctx.singleton<WorldState>();
+  //   int i = id.id;
+  //   if (ctx.singleton<WorldReset>().resetNow) {
+  //     p.position = ws.start_player_y[i] * ws.width + ws.start_player_x[i];
+  //     ctx.get<LocationData>(ctx.data().locations[p.position]).current_player = i;
+  //     p.orientation = ActionT::NORTH;
+  //     p.proposed_position = p.position;
+  //     p.proposed_orientation = p.orientation;
+        
+  //     p.held_object = { .name = ObjectT::NONE };
+  //   }
+  // }
+
+  static void resetWorld(Engine &ctx)
   {
-    WorldState &ws = ctx.singleton<WorldState>();
-    int i = id.id;
-    ctx.get<Reward>(ctx.data().agents[i]).rew = ws.calculated_reward.load_relaxed();
-    if (ctx.singleton<WorldReset>().resetNow) {
+    WorldState &ws = ctx.singleton<WorldState>();    
+    ws.timestep = 0;
+    for (int i = 0; i < ws.size; i++) {
+      LocationData &loc = ctx.get<LocationData>(ctx.data().locations[i]);
+      loc.object = { .name = ObjectT::NONE };
+    }
+
+    for (int i = 0; i < ws.num_players; i++) {
+      PlayerState &p = ctx.get<PlayerState>(ctx.data().agents[i]);
       p.position = ws.start_player_y[i] * ws.width + ws.start_player_x[i];
-      ctx.get<LocationData>(ctx.data().locations[p.position]).current_player = i;
       p.orientation = ActionT::NORTH;
       p.proposed_position = p.position;
       p.proposed_orientation = p.orientation;
@@ -481,75 +432,63 @@ namespace Overcooked {
     }
   }
 
+  
   // MODIFIES: timestep of world and WorldReset
   inline void check_reset_system(Engine &ctx, WorldState &ws)
   {
     ws.timestep += 1;
     ctx.singleton<WorldReset>().resetNow = (ws.timestep >= ws.horizon);
+
+    if (ctx.singleton<WorldReset>().resetNow) {
+      resetWorld(ctx);
+    }
   }
 
-  inline void postObservationSystem(Engine &, LocationData &dat)
-  {
-    dat.past_player = -1;
-    dat.past_orientation = -1;
-  }
+  // inline void postObservationSystem(Engine &, LocationData &dat)
+  // {
+  //   dat.past_player = -1;
+  //   dat.past_orientation = -1;
+  // }
     
 
   void Sim::setupTasks(TaskGraphBuilder &builder, const Config &)
   {
     // Handle "Interactions"
-    auto pre_interact_sys = builder.addToGraph<ParallelForNode<Engine, pre_resolve_interacts, WorldState>>({});
-    auto resolve_interact_sys = builder.addToGraph<ParallelForNode<Engine, resolve_interacts, PlayerState, AgentID, Action>>({pre_interact_sys});
-    auto interact_time_sys = builder.addToGraph<ParallelForNode<Engine, setup_interact_time, PlayerState, AgentID, Action>>({resolve_interact_sys});
-    auto counter_pot_sys0 = builder.addToGraph<ParallelForNode<Engine, do_counter_pot_int0, PlayerState>>({interact_time_sys});
-    auto counter_pot_sys1 = builder.addToGraph<ParallelForNode<Engine, do_counter_pot_int1, PlayerState>>({counter_pot_sys0});
-    auto counter_pot_sys2 = builder.addToGraph<ParallelForNode<Engine, do_counter_pot_int2, PlayerState>>({counter_pot_sys1});
-    auto counter_pot_sys3 = builder.addToGraph<ParallelForNode<Engine, do_counter_pot_int3, PlayerState>>({counter_pot_sys2});
+    // auto pre_interact_sys = builder.addToGraph<ParallelForNode<Engine, pre_resolve_interacts, WorldState>>({});
+    // auto resolve_interact_sys = builder.addToGraph<ParallelForNode<Engine, resolve_interacts, PlayerState, AgentID, Action>>({pre_interact_sys});
+    // auto interact_time_sys = builder.addToGraph<ParallelForNode<Engine, setup_interact_time, PlayerState, AgentID, Action>>({resolve_interact_sys});
+    // auto counter_pot_sys0 = builder.addToGraph<ParallelForNode<Engine, do_counter_pot_int0, PlayerState>>({interact_time_sys});
+    // auto counter_pot_sys1 = builder.addToGraph<ParallelForNode<Engine, do_counter_pot_int1, PlayerState>>({counter_pot_sys0});
+    // auto counter_pot_sys2 = builder.addToGraph<ParallelForNode<Engine, do_counter_pot_int2, PlayerState>>({counter_pot_sys1});
+    // auto counter_pot_sys3 = builder.addToGraph<ParallelForNode<Engine, do_counter_pot_int3, PlayerState>>({counter_pot_sys2});
+    auto interact_sys = builder.addToGraph<ParallelForNode<Engine, resolve_interacts, WorldState>>({});
 
     // Calculate next movement
-    auto move_sys = builder.addToGraph<ParallelForNode<Engine, _move_if_direction, PlayerState, Action, AgentID>>({});
-    auto check_collision_sys = builder.addToGraph<ParallelForNode<Engine, _check_collisions, PlayerState, AgentID>>({move_sys});
-    auto unset_loc_info = builder.addToGraph<ParallelForNode<Engine, _unset_loc_info, PlayerState, AgentID>>({check_collision_sys});
+    auto move_sys = builder.addToGraph<ParallelForNode<Engine, _move_if_direction, PlayerState, Action>>({});
+    // auto check_collision_sys = builder.addToGraph<ParallelForNode<Engine, _check_collisions, PlayerState, AgentID>>({move_sys});
+    // auto unset_loc_info = builder.addToGraph<ParallelForNode<Engine, _unset_loc_info, PlayerState, AgentID>>({check_collision_sys});
 
     // Modify position (need to do after all interactions are done)
-    auto collision_sys = builder.addToGraph<ParallelForNode<Engine, _handle_collisions, PlayerState, AgentID>>({unset_loc_info, counter_pot_sys3});
+    auto collision_sys = builder.addToGraph<ParallelForNode<Engine, _handle_collisions, WorldState>>({move_sys});
 
     // Step time of cooking pots (does not rely on player locations)
-    auto env_step_sys = builder.addToGraph<ParallelForNode<Engine, step_pot_effects, PotInfo>>({counter_pot_sys3});    
+    auto env_step_sys = builder.addToGraph<ParallelForNode<Engine, step_pot_effects, PotInfo>>({interact_sys, collision_sys});
 
     // Should terminate in next timestep? (don't need to do whole step to make judgement)
-    auto terminate_sys = builder.addToGraph<ParallelForNode<Engine, check_reset_system, WorldState>>({});
+    auto terminate_sys = builder.addToGraph<ParallelForNode<Engine, check_reset_system, WorldState>>({env_step_sys});
 
-    // Updates should_update_pos so must come after collision_sys
-    auto reset_world_sys = builder.addToGraph<ParallelForNode<Engine, _reset_world_system, WorldState>>({terminate_sys,  collision_sys});
-    // Modifies objects in the world and num_interacting_players, so should come after interactions
-    auto reset_obj_sys = builder.addToGraph<ParallelForNode<Engine, _reset_objects_system, LocationData>>({terminate_sys, env_step_sys});
-    // Relies on positions of players, so must come after collision_sys
-    auto pre_reset_actors_sys = builder.addToGraph<ParallelForNode<Engine, _pre_reset_actors_system, PlayerState>>({terminate_sys, collision_sys});
-    auto reset_actors_sys = builder.addToGraph<ParallelForNode<Engine, _reset_actors_system, PlayerState, AgentID>>({pre_reset_actors_sys});
+    // // Updates should_update_pos so must come after collision_sys
+    // auto reset_world_sys = builder.addToGraph<ParallelForNode<Engine, _reset_world_system, WorldState>>({terminate_sys,  collision_sys});
+    // // Modifies objects in the world and num_interacting_players, so should come after interactions
+    // auto reset_obj_sys = builder.addToGraph<ParallelForNode<Engine, _reset_objects_system, LocationData>>({terminate_sys, env_step_sys});
+    // // Relies on positions of players, so must come after collision_sys
+    // auto pre_reset_actors_sys = builder.addToGraph<ParallelForNode<Engine, _pre_reset_actors_system, PlayerState>>({terminate_sys, collision_sys});
+    // auto reset_actors_sys = builder.addToGraph<ParallelForNode<Engine, _reset_actors_system, PlayerState, AgentID>>({pre_reset_actors_sys});
 
     // Get most up-to-date observations
-    auto obs_sys = builder.addToGraph<ParallelForNode<Engine, observationSystem, LocationXObservation, LocationXID>>({reset_world_sys, reset_obj_sys, reset_actors_sys});
-
-    auto post_obs_sys = builder.addToGraph<ParallelForNode<Engine, postObservationSystem, LocationData>>({obs_sys});
-
-    (void)post_obs_sys;
-  }
-
-  static void resetWorld(Engine &ctx)
-  {
-    WorldState &ws = ctx.singleton<WorldState>();    
-    _reset_world_system(ctx, ws);
-        
-    for (int i = 0; i < ws.size; i++) {
-      _reset_objects_system(ctx, ctx.get<LocationData>(ctx.data().locations[i]));
-    }
-
-    for (int i = 0; i < ws.num_players; i++) {
-      PlayerState &p = ctx.get<PlayerState>(ctx.data().agents[i]);
-      AgentID &id = ctx.get<AgentID>(ctx.data().agents[i]);
-      _reset_actors_system(ctx, p, id);
-    }
+    auto obs_sys = builder.addToGraph<ParallelForNode<Engine, observationSystem, AgentID>>({terminate_sys});
+    
+    (void)obs_sys;
   }
 
 
@@ -603,8 +542,6 @@ namespace Overcooked {
     ws.placement_in_pot_rew = cfg.placement_in_pot_rew;
     ws.dish_pickup_rew = cfg.dish_pickup_rew;
     ws.soup_pickup_rew = cfg.soup_pickup_rew;
-    ws.calculated_reward.store_release(0);
-
     
     // Set Everything Else
     
@@ -650,10 +587,14 @@ namespace Overcooked {
     resetWorld(ctx);
     ctx.singleton<WorldReset>().resetNow = false;
 
-    for (int p = 0; p < cfg.height * cfg.width * cfg.num_players; p++) {
-      LocationXObservation& obs = ctx.get<LocationXObservation>(locationXplayers[p]);
-      LocationXID& id = ctx.get<LocationXID>(locationXplayers[p]);
-      observationSystem(ctx, obs, id);
+    // for (int p = 0; p < cfg.height * cfg.width * cfg.num_players; p++) {
+    //   LocationXObservation& obs = ctx.get<LocationXObservation>(locationXplayers[p]);
+    //   LocationXID& id = ctx.get<LocationXID>(locationXplayers[p]);
+    //   observationSystem(ctx, obs, id);
+    // }
+
+    for (int i = 0; i < cfg.num_players; i++) {
+      observationSystem(ctx, ctx.get<AgentID>(agents[i]));
     }
 
   }
